@@ -31,22 +31,20 @@ public abstract class SendToMoip {
 	public EnviarInstrucaoUnicaResponse send(
 			final EnviarInstrucao enviarInstrucao) {
 		HttpClient client = new HttpClient();
-
+		
 		PostMethod post = new PostMethod(getEnviroment());
+		post.setDoAuthentication(true);
 
 		String authHeader = token + ":" + key;
 		String hash = this.hash;
-		if (hasHash()) {
+		if (!hasHash()) {
 			hash = Base64.encodeBase64(authHeader.getBytes()).toString();
 		}
 		String encoded = "Basic " + hash;
 
 		post.setRequestHeader("Authorization", encoded);
-		post.setDoAuthentication(true);
 
-		XStream xstream = new XStream();
-		xstream.processAnnotations(EnviarInstrucao.class);
-		String body = xstream.toXML(enviarInstrucao);
+		String body = enviarInstrucao.getXML();
 
 		try {
 
@@ -57,6 +55,7 @@ public abstract class SendToMoip {
 			int status = client.executeMethod(post);
 			System.out.println(status);
 
+			XStream xstream = new XStream();
 			xstream.processAnnotations(EnviarInstrucaoUnicaResponse.class);
 
 			return (EnviarInstrucaoUnicaResponse) xstream.fromXML(post
@@ -73,7 +72,7 @@ public abstract class SendToMoip {
 	public abstract String getEnviroment();
 
 	private boolean hasHash() {
-		return hash == null || "".equals(hash);
+		return hash != null && !"".equals(hash);
 	}
 
 	public SendToMoip comToken(final String token) {

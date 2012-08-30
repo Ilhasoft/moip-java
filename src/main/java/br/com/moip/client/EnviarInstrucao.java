@@ -1,7 +1,9 @@
 package br.com.moip.client;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
+import br.com.moip.client.exception.InstrucaoValidationException;
+
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("EnviarInstrucao")
 public class EnviarInstrucao {
@@ -29,10 +31,18 @@ public class EnviarInstrucao {
 		this.instrucaoUnica = instrucaoUnica;
 	}
 
+	public void validate() throws InstrucaoValidationException {
+		this.instrucaoUnica.validate();
+	}
+	
+	public String getXML() {
+		XStream xstream = new XStream();
+		xstream.autodetectAnnotations(true);
+		return xstream.toXML(this);		
+	}
+	
 	@Override
 	public String toString() {
-		XStream xstream = new XStream();
-		xstream.processAnnotations(EnviarInstrucao.class);
-		return xstream.toXML(this);		
+		return this.getXML();
 	}
 }

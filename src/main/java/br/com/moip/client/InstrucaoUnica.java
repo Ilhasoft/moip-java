@@ -1,5 +1,10 @@
 package br.com.moip.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.moip.client.exception.InstrucaoValidationException;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("InstrucaoUnica")
@@ -36,7 +41,10 @@ public class InstrucaoUnica {
 	private Recebedor recebedor;
 
 	@XStreamAlias("Comissoes")
-	private Comissoes comissoes;
+	private List<Comissionamento> comissoes;
+	
+	@XStreamAlias("Parcelamentos")
+	private List<Parcelamento> parcelamentos;
 
 	public static InstrucaoUnica instrucaoUnica() {
 		return new InstrucaoUnica();
@@ -82,8 +90,17 @@ public class InstrucaoUnica {
 		return this;
 	}
 
-	public InstrucaoUnica com(Comissoes comissoes) {
-		this.comissoes = comissoes;
+	public InstrucaoUnica com(Comissionamento comissionamento) {
+		if (this.comissoes == null)
+			this.comissoes = new ArrayList<Comissionamento>();
+		this.comissoes.add(comissionamento);
+		return this;
+	}
+	
+	public InstrucaoUnica com(Parcelamento parcelamento) {
+		if (this.parcelamentos == null)
+			this.parcelamentos = new ArrayList<Parcelamento>();
+		this.parcelamentos.add(parcelamento);
 		return this;
 	}
 	
@@ -212,12 +229,21 @@ public class InstrucaoUnica {
 		this.recebedor = recebedor;
 	}
 
-	public Comissoes getComissoes() {
+	public List<Comissionamento> getComissoes() {
 		return comissoes;
 	}
-
-	public void setComissoes(Comissoes comissoes) {
+	
+	public void setComissoes(List<Comissionamento> comissoes) {
 		this.comissoes = comissoes;
 	}
 
+	public void validate() throws InstrucaoValidationException {
+		String fields = "";
+		if (this.getIdProprio() == null) fields += "uniqueID,";
+		if (this.getRazao() == null) fields += "reason,";
+		if (this.getValores() == null) fields += "value,";
+		
+		if (!"".equals(fields))
+			throw new InstrucaoValidationException("You must inform: " + fields.substring(0, fields.length()-1));
+	}
 }
