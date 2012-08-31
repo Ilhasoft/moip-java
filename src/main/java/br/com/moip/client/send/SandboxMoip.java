@@ -11,7 +11,7 @@ public class SandboxMoip extends SendToMoip {
 
 	@Override
 	public String getEnviroment() {
-		return "https://desenvolvedor.moip.com.br/sandbox/ws/alpha/EnviarInstrucao/Unica";
+		return "https://desenvolvedor.moip.com.br/sandbox/ws/alpha";
 	}
 
 }

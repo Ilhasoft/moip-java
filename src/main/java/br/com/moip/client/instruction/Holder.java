@@ -1,9 +1,10 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
-public class Portador {
+@XStreamAlias("Portador")
+public class Holder {
 
 	@XStreamAlias("Nome")
 	private String nome;
@@ -21,31 +22,31 @@ public class Portador {
 	@XStreamAlias("DataNascimento")
 	private String dataNascimento;
 
-	public static Portador portador() {
-		return new Portador();
+	public static Holder holder() {
+		return new Holder();
 	}
 
-	public Portador comNome(final String nome) {
+	public Holder withName(final String nome) {
 		this.nome = nome;
 		return this;
 	}
 
-	public Portador comIdentidade(final String identidade) {
+	public Holder withIdentity(final String identidade) {
 		this.identidade = identidade;
 		return this;
 	}
 
-	public Portador comTipoDocumento(final String tipoDocumento) {
+	public Holder withDocumentType(final String tipoDocumento) {
 		this.tipoDocumento = tipoDocumento;
 		return this;
 	}
 
-	public Portador comTelefone(final String telefone) {
+	public Holder withPhone(final String telefone) {
 		this.telefone = telefone;
 		return this;
 	}
 
-	public Portador comDataNascimento(final String dataNascimento) {
+	public Holder withBirthDate(final String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 		return this;
 	}

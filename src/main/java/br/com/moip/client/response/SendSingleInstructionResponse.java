@@ -4,12 +4,12 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("ns1:EnviarInstrucaoUnicaResponse")
-public class EnviarInstrucaoUnicaResponse {
+public class SendSingleInstructionResponse {
 
 	@XStreamAlias("Resposta")
-	private Resposta resposta;
+	private Response resposta;
 
-	public Resposta getResposta() {
+	public Response getResposta() {
 		return resposta;
 	}
 

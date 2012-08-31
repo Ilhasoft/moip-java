@@ -5,7 +5,8 @@ import java.util.List;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
-public class Resposta {
+@XStreamAlias("Resposta")
+public class Response {
 
     @XStreamAlias("ID")
     private String id;
@@ -16,12 +17,11 @@ public class Resposta {
     @XStreamAlias("Token")
     private String token;
 
-    @XStreamImplicit
-    @XStreamAlias("Erro")
+    @XStreamImplicit(itemFieldName="Erro")
     private List<String> erro;
 
     @XStreamAlias("RespostaPagamentoDireto")
-    private RespostaPagamentoDireto respostaPagamentoDireto;
+    private DirectPaymentResponse respostaPagamentoDireto;
 
     public String getId() {
         return id;
@@ -35,7 +35,7 @@ public class Resposta {
         return token;
     }
 
-    public RespostaPagamentoDireto getRespostaPagamentoDireto() {
+    public DirectPaymentResponse getRespostaPagamentoDireto() {
         return respostaPagamentoDireto;
     }
 

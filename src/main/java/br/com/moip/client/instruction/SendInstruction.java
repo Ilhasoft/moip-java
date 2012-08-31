@@ -1,37 +1,37 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
-import br.com.moip.client.exception.InstrucaoValidationException;
+import br.com.moip.client.exception.InstructionValidationException;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("EnviarInstrucao")
-public class EnviarInstrucao {
+public class SendInstruction {
 
 	@XStreamAlias("InstrucaoUnica")
-	private InstrucaoUnica instrucaoUnica;
+	private SingleInstruction instrucaoUnica;
 
-	public InstrucaoUnica instrucaoUnica() {
+	public SingleInstruction instrucaoUnica() {
 		if (this.instrucaoUnica == null) {
-			this.instrucaoUnica = new InstrucaoUnica();
+			this.instrucaoUnica = new SingleInstruction();
 		}
 		return this.instrucaoUnica;
 	}
 
-	public EnviarInstrucao comInstrucaoUnica(final InstrucaoUnica instrucaoUnica) {
+	public SendInstruction withSingleInstruction(final SingleInstruction instrucaoUnica) {
 		this.instrucaoUnica = instrucaoUnica;
 		return this;
 	}
 
-	public InstrucaoUnica getInstrucaoUnica() {
+	public SingleInstruction getInstrucaoUnica() {
 		return instrucaoUnica;
 	}
 
-	public void setInstrucaoUnica(final InstrucaoUnica instrucaoUnica) {
+	public void setInstrucaoUnica(final SingleInstruction instrucaoUnica) {
 		this.instrucaoUnica = instrucaoUnica;
 	}
 
-	public void validate() throws InstrucaoValidationException {
+	public void validate() throws InstructionValidationException {
 		this.instrucaoUnica.validate();
 	}
 	
@@ -39,6 +39,10 @@ public class EnviarInstrucao {
 		XStream xstream = new XStream();
 		xstream.autodetectAnnotations(true);
 		return xstream.toXML(this);		
+	}
+	
+	public String getPath() {
+		return "/EnviarInstrucao/Unica";
 	}
 	
 	@Override

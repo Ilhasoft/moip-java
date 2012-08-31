@@ -1,9 +1,9 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("Comissionamento")
-public class Comissionamento {
+public class Comissioning {
 
 	@XStreamAlias("ValorPercentual")
 	private String valorPercentual;
@@ -12,40 +12,40 @@ public class Comissionamento {
 	private String valorFixo;
 
 	@XStreamAlias("Comissionado")
-	private Comissionado comissionado;
+	private Comissioned comissionado;
 
 	@XStreamAlias("Razao")
 	private String razao;
 
-	public static Comissionamento comissionamento() {
-		return new Comissionamento();
+	public static Comissioning commissioning() {
+		return new Comissioning();
 	}
 
-	public Comissionamento comRazao(final String razao) {
+	public Comissioning withReason(final String razao) {
 		this.razao = razao;
 		return this;
 	}
 
-	public Comissionamento comValorPercentual(final String valor) {
+	public Comissioning withPercentValue(final String valor) {
 		this.valorPercentual = valor;
 		return this;
 	}
 	
-	public Comissionamento comValorFixo(final String valor) {
+	public Comissioning withFixedValue(final String valor) {
 		this.valorFixo = valor;
 		return this;
 	}
 
-	public Comissionamento comComissionado(final Comissionado comissionado) {
+	public Comissioning withCommissioned(final Comissioned comissionado) {
 		this.comissionado = comissionado;
 		return this;
 	}
 
-	public Comissionado getComissionado() {
+	public Comissioned getComissionado() {
 		return comissionado;
 	}
 
-	public void setComissionado(final Comissionado comissionado) {
+	public void setComissionado(final Comissioned comissionado) {
 		this.comissionado = comissionado;
 	}
 

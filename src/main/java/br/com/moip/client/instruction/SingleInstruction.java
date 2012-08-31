@@ -1,14 +1,14 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.moip.client.exception.InstrucaoValidationException;
+import br.com.moip.client.exception.InstructionValidationException;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("InstrucaoUnica")
-public class InstrucaoUnica {
+public class SingleInstruction {
 
 	@XStreamAlias("Razao")
 	private String razao;
@@ -17,16 +17,16 @@ public class InstrucaoUnica {
 	private String IdProprio;
 
 	@XStreamAlias("Pagador")
-	private Pagador pagador;
+	private Payer pagador;
 
 	@XStreamAlias("PagamentoDireto")
-	private PagamentoDireto pagamentoDireto;
+	private DirectPayment pagamentoDireto;
 
 	@XStreamAlias("Boleto")
-	private Boleto boleto;
+	private Billet boleto;
 
 	@XStreamAlias("Valores")
-	private Valores valores;
+	private Values valores;
 
 	@XStreamAlias("URLNotificacao")
 	private String urlNotificacao;
@@ -35,116 +35,116 @@ public class InstrucaoUnica {
 	private String urlRetorno;
 
 	@XStreamAlias("Mensagens")
-	private Mensagens mensagens;
+	private Messages mensagens;
 
 	@XStreamAlias("Recebedor")
-	private Recebedor recebedor;
+	private Receiver recebedor;
 
 	@XStreamAlias("Comissoes")
-	private List<Comissionamento> comissoes;
+	private List<Comissioning> comissoes;
 	
 	@XStreamAlias("Parcelamentos")
-	private List<Parcelamento> parcelamentos;
+	private List<Parcel> parcelamentos;
 
-	public static InstrucaoUnica instrucaoUnica() {
-		return new InstrucaoUnica();
+	public static SingleInstruction singleInstruction() {
+		return new SingleInstruction();
 	}
 
-	public InstrucaoUnica comRazao(final String razao) {
+	public SingleInstruction withReason(final String razao) {
 		this.razao = razao;
 		return this;
 	}
 
-	public InstrucaoUnica comIdProprio(final String id) {
+	public SingleInstruction withUniqueId(final String id) {
 		this.IdProprio = id;
 		return this;
 	}
 
-	public InstrucaoUnica com(final PagamentoDireto pagamentoDireto) {
+	public SingleInstruction with(final DirectPayment pagamentoDireto) {
 		this.pagamentoDireto = pagamentoDireto;
 		return this;
 	}
 
-	public InstrucaoUnica com(final Pagador pagador) {
+	public SingleInstruction with(final Payer pagador) {
 		this.pagador = pagador;
 		return this;
 	}
 
-	public InstrucaoUnica com(final Boleto boleto) {
+	public SingleInstruction with(final Billet boleto) {
 		this.boleto = boleto;
 		return this;
 	}
 
-	public InstrucaoUnica com(final Valores valores) {
+	public SingleInstruction with(final Values valores) {
 		this.valores = valores;
 		return this;
 	}
 
-	public InstrucaoUnica com(final Mensagens mensagens) {
+	public SingleInstruction with(final Messages mensagens) {
 		this.mensagens = mensagens;
 		return this;
 	}
 
-	public InstrucaoUnica com(final Recebedor recebedor) {
+	public SingleInstruction with(final Receiver recebedor) {
 		this.recebedor = recebedor;
 		return this;
 	}
 
-	public InstrucaoUnica com(Comissionamento comissionamento) {
+	public SingleInstruction with(Comissioning comissionamento) {
 		if (this.comissoes == null)
-			this.comissoes = new ArrayList<Comissionamento>();
+			this.comissoes = new ArrayList<Comissioning>();
 		this.comissoes.add(comissionamento);
 		return this;
 	}
 	
-	public InstrucaoUnica com(Parcelamento parcelamento) {
+	public SingleInstruction with(Parcel parcelamento) {
 		if (this.parcelamentos == null)
-			this.parcelamentos = new ArrayList<Parcelamento>();
+			this.parcelamentos = new ArrayList<Parcel>();
 		this.parcelamentos.add(parcelamento);
 		return this;
 	}
 	
-	public Pagador pagador() {
+	public Payer payer() {
 		if (pagador == null) {
-			pagador = new Pagador();
+			pagador = new Payer();
 		}
 		return pagador;
 	}
 
-	public PagamentoDireto pagamentoDireto() {
+	public DirectPayment directPayment() {
 		if (pagamentoDireto == null) {
-			pagamentoDireto = new PagamentoDireto();
+			pagamentoDireto = new DirectPayment();
 		}
 		return pagamentoDireto;
 	}
 
-	public Boleto boleto() {
+	public Billet billet() {
 		if (boleto == null) {
-			boleto = new Boleto();
+			boleto = new Billet();
 		}
 		return boleto;
 	}
 
-	public Valores valores() {
+	public Values values() {
 		if (valores == null) {
-			valores = new Valores();
+			valores = new Values();
 		}
 		return valores;
 	}
 
-	public Recebedor recebedor() {
+	public Receiver receiver() {
 		if (recebedor == null) {
-			recebedor = new Recebedor();
+			recebedor = new Receiver();
 		}
 		return recebedor;
 	}
 
-	public InstrucaoUnica comURLNotificacao(final String urlNotificacao) {
+	public SingleInstruction withNotificationURL(final String urlNotificacao) {
 		this.urlNotificacao = urlNotificacao;
 		return this;
 	}
 
-	public InstrucaoUnica comURLRetorno(final String urlRetorno) {
+	public SingleInstruction withReturnURL(final String urlRetorno) {
 		this.urlRetorno = urlRetorno;
 		return this;
 	}
@@ -157,7 +157,7 @@ public class InstrucaoUnica {
 		return IdProprio;
 	}
 
-	public Pagador getPagador() {
+	public Payer getPagador() {
 		return pagador;
 	}
 
@@ -169,31 +169,31 @@ public class InstrucaoUnica {
 		IdProprio = idProprio;
 	}
 
-	public void setPagador(final Pagador pagador) {
+	public void setPagador(final Payer pagador) {
 		this.pagador = pagador;
 	}
 
-	public PagamentoDireto getPagamentoDireto() {
+	public DirectPayment getPagamentoDireto() {
 		return pagamentoDireto;
 	}
 
-	public void setPagamentoDireto(final PagamentoDireto pagamentoDireto) {
+	public void setPagamentoDireto(final DirectPayment pagamentoDireto) {
 		this.pagamentoDireto = pagamentoDireto;
 	}
 
-	public Boleto getBoleto() {
+	public Billet getBoleto() {
 		return boleto;
 	}
 
-	public void setBoleto(final Boleto boleto) {
+	public void setBoleto(final Billet boleto) {
 		this.boleto = boleto;
 	}
 
-	public Valores getValores() {
+	public Values getValores() {
 		return valores;
 	}
 
-	public void setValores(final Valores valores) {
+	public void setValores(final Values valores) {
 		this.valores = valores;
 	}
 
@@ -213,37 +213,37 @@ public class InstrucaoUnica {
 		this.urlRetorno = urlRetorno;
 	}
 
-	public Mensagens getMensagens() {
+	public Messages getMensagens() {
 		return mensagens;
 	}
 
-	public void setMensagens(final Mensagens mensagens) {
+	public void setMensagens(final Messages mensagens) {
 		this.mensagens = mensagens;
 	}
 
-	public Recebedor getRecebedor() {
+	public Receiver getRecebedor() {
 		return recebedor;
 	}
 
-	public void setRecebedor(final Recebedor recebedor) {
+	public void setRecebedor(final Receiver recebedor) {
 		this.recebedor = recebedor;
 	}
 
-	public List<Comissionamento> getComissoes() {
+	public List<Comissioning> getComissoes() {
 		return comissoes;
 	}
 	
-	public void setComissoes(List<Comissionamento> comissoes) {
+	public void setComissoes(List<Comissioning> comissoes) {
 		this.comissoes = comissoes;
 	}
 
-	public void validate() throws InstrucaoValidationException {
+	public void validate() throws InstructionValidationException {
 		String fields = "";
 		if (this.getIdProprio() == null) fields += "uniqueID,";
 		if (this.getRazao() == null) fields += "reason,";
 		if (this.getValores() == null) fields += "value,";
 		
 		if (!"".equals(fields))
-			throw new InstrucaoValidationException("You must inform: " + fields.substring(0, fields.length()-1));
+			throw new InstructionValidationException("You must inform: " + fields.substring(0, fields.length()-1));
 	}
 }

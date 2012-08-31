@@ -1,8 +1,9 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-public class CartaoCredito {
+@XStreamAlias("CartaoCredito")
+public class CreditCard {
 
 	@XStreamAlias("Numero")
 	private String numero;
@@ -14,35 +15,35 @@ public class CartaoCredito {
 	private String codigoSeguranca;
 
 	@XStreamAlias("Portador")
-	private Portador portador;
+	private Holder portador;
 
-	public static CartaoCredito cartaoCredito() {
-		return new CartaoCredito();
+	public static CreditCard creditCard() {
+		return new CreditCard();
 	}
 
-	public CartaoCredito comNumero(final String numero) {
+	public CreditCard withNumber(final String numero) {
 		this.numero = numero;
 		return this;
 	}
 
-	public CartaoCredito comExpiracao(final String expiracao) {
+	public CreditCard withExpiration(final String expiracao) {
 		this.expiracao = expiracao;
 		return this;
 	}
 
-	public CartaoCredito comPortador(final Portador portador) {
+	public CreditCard withHolder(final Holder portador) {
 		this.portador = portador;
 		return this;
 	}
 
-	public CartaoCredito comCodigoSeguranca(final String codigoSeguranca) {
+	public CreditCard withPIN(final String codigoSeguranca) {
 		this.codigoSeguranca = codigoSeguranca;
 		return this;
 	}
 
-	public Portador portador() {
+	public Holder withHolder() {
 		if (this.portador == null) {
-			this.portador = new Portador();
+			this.portador = new Holder();
 		}
 		return this.portador;
 	}
@@ -71,11 +72,11 @@ public class CartaoCredito {
 		this.codigoSeguranca = codigoSeguranca;
 	}
 
-	public Portador getPortador() {
+	public Holder getPortador() {
 		return portador;
 	}
 
-	public void setPortador(final Portador portador) {
+	public void setPortador(final Holder portador) {
 		this.portador = portador;
 	}
 

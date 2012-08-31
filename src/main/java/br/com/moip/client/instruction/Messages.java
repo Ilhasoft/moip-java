@@ -1,4 +1,4 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,17 +7,17 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 @XStreamAlias("Mensagem")
-public class Mensagens {
+public class Messages {
 
 	@XStreamImplicit(itemFieldName = "Mensagem")
 	@XStreamAlias("Mensagem")
 	private List<String> mensagens;
 
-	public static Mensagens mensagens() {
-		return new Mensagens();
+	public static Messages messages() {
+		return new Messages();
 	}
 
-	public Mensagens adicionaMensagem(final String mensagem) {
+	public Messages addMessage(final String mensagem) {
 
 		if (this.mensagens == null) {
 			this.mensagens = new ArrayList<String>();

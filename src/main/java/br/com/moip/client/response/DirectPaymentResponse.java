@@ -2,7 +2,8 @@ package br.com.moip.client.response;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-public class RespostaPagamentoDireto {
+@XStreamAlias("RespostaPagamentoDireto")
+public class DirectPaymentResponse {
 
 	@XStreamAlias("TotalPago")
 	private String totalPago;

@@ -11,7 +11,7 @@ public class ProductionMoip extends SendToMoip {
 
 	@Override
 	public String getEnviroment() {
-		return "https://www.moip.com.br/ws/alpha/EnviarInstrucao/Unica";
+		return "https://www.moip.com.br/ws/alpha";
 	}
 
 }

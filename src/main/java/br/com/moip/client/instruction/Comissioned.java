@@ -1,17 +1,18 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-public class Comissionado {
+@XStreamAlias("Comissionado")
+public class Comissioned {
 
 	@XStreamAlias("LoginMoIP")
 	private String loginMoIP;
 
-	public static Comissionado comissionado() {
-		return new Comissionado();
+	public static Comissioned commissioned() {
+		return new Comissioned();
 	}
 
-	public Comissionado comissionado(final String loginMoip) {
+	public Comissioned comissioned(final String loginMoip) {
 		this.loginMoIP = loginMoip;
 		return this;
 	}

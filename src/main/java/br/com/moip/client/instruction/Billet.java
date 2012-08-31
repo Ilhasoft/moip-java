@@ -1,6 +1,9 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
-public class Boleto {
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("Boleto")
+public class Billet {
 
 	private String DiasExpiracao;
 	private String Instrucao1;
@@ -8,31 +11,31 @@ public class Boleto {
 	private String Instrucao3;
 	private String URLLogo;
 
-	public static Boleto boleto() {
-		return new Boleto();
+	public static Billet billet() {
+		return new Billet();
 	}
 
-	public Boleto comDiasParaExpiracao(final String diasExpiracao) {
+	public Billet withDaysToExpire(final String diasExpiracao) {
 		this.DiasExpiracao = diasExpiracao;
 		return this;
 	}
 
-	public Boleto comInstrucao1(final String instrucao1) {
+	public Billet withInstruction1(final String instrucao1) {
 		this.Instrucao1 = instrucao1;
 		return this;
 	}
 
-	public Boleto comInstrucao2(final String instrucao2) {
+	public Billet withInstruction2(final String instrucao2) {
 		this.Instrucao2 = instrucao2;
 		return this;
 	}
 
-	public Boleto comInstrucao3(final String instrucao3) {
+	public Billet withInstruction3(final String instrucao3) {
 		this.Instrucao3 = instrucao3;
 		return this;
 	}
 
-	public Boleto comURLLogo(final String URLLogo) {
+	public Billet withURLLogo(final String URLLogo) {
 		this.URLLogo = URLLogo;
 		return this;
 	}

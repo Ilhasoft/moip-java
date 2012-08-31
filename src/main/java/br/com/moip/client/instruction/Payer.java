@@ -1,8 +1,9 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-public class Pagador {
+@XStreamAlias("Pagador")
+public class Payer {
 
     @XStreamAlias("Nome")
     private String nome;
@@ -23,47 +24,42 @@ public class Pagador {
     private String identidade;
 
     @XStreamAlias("EnderecoCobranca")
-    private Endereco enderecoCobranca;
+    private Address enderecoCobranca;
 
     @XStreamAlias("EnderecoEntrega")
-    private Endereco enderecoEntrega;
+    private Address enderecoEntrega;
 
-    public static Pagador pagador() {
-        return new Pagador();
+    public static Payer payer() {
+        return new Payer();
     }
 
-    public Pagador comNome(final String nome) {
+    public Payer withName(final String nome) {
         this.nome = nome;
         return this;
     }
 
-    public Pagador comEmail(final String email) {
+    public Payer withEmail(final String email) {
         this.email = email;
         return this;
     }
 
-    public Pagador comTelefoneCelular(final String telefoneCelular) {
+    public Payer withCellphone(final String telefoneCelular) {
         this.telefoneCelular = telefoneCelular;
         return this;
     }
 
-    public Pagador comApelido(final String apelido) {
+    public Payer withNickname(final String apelido) {
         this.apelido = apelido;
         return this;
     }
 
-    public Pagador comIdentidade(final String identidade) {
+    public Payer withIdentity(final String identidade) {
         this.identidade = identidade;
         return this;
     }
 
-    public Pagador comEnderecoCobranca(final Endereco enderecoCobranca) {
+    public Payer withBillingAddress(final Address enderecoCobranca) {
         this.enderecoCobranca = enderecoCobranca;
-        return this;
-    }
-
-    public Pagador comEnderecoEntrega(final Endereco enderecoEntrega) {
-        this.enderecoEntrega = enderecoEntrega;
         return this;
     }
 
@@ -115,19 +111,19 @@ public class Pagador {
         this.identidade = identidade;
     }
 
-    public Endereco getEnderecoCobranca() {
+    public Address getEnderecoCobranca() {
         return enderecoCobranca;
     }
 
-    public void setEnderecoCobranca(final Endereco enderecoCobranca) {
+    public void setEnderecoCobranca(final Address enderecoCobranca) {
         this.enderecoCobranca = enderecoCobranca;
     }
 
-    public Endereco getEnderecoEntrega() {
+    public Address getEnderecoEntrega() {
         return enderecoEntrega;
     }
 
-    public void setEnderecoEntrega(final Endereco enderecoEntrega) {
+    public void setEnderecoEntrega(final Address enderecoEntrega) {
         this.enderecoEntrega = enderecoEntrega;
     }
 

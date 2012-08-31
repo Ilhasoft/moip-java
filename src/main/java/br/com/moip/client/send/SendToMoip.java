@@ -2,13 +2,16 @@ package br.com.moip.client.send;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpMethod;
+import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.RequestEntity;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
 
-import br.com.moip.client.EnviarInstrucao;
 import br.com.moip.client.exception.MoipClientException;
-import br.com.moip.client.response.EnviarInstrucaoUnicaResponse;
+import br.com.moip.client.instruction.SendInstruction;
+import br.com.moip.client.query.QueryParcel;
+import br.com.moip.client.response.SendSingleInstructionResponse;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -28,21 +31,13 @@ public abstract class SendToMoip {
 		this.key = key;
 	}
 
-	public EnviarInstrucaoUnicaResponse send(
-			final EnviarInstrucao enviarInstrucao) {
+	public SendSingleInstructionResponse send(
+			final SendInstruction enviarInstrucao) {
 		HttpClient client = new HttpClient();
 		
-		PostMethod post = new PostMethod(getEnviroment());
-		post.setDoAuthentication(true);
+		PostMethod post = new PostMethod(getEnviroment() + enviarInstrucao.getPath());
 
-		String authHeader = token + ":" + key;
-		String hash = this.hash;
-		if (!hasHash()) {
-			hash = new String(Base64.encodeBase64(authHeader.getBytes()));
-		}
-		String encoded = "Basic " + hash;
-
-		post.setRequestHeader("Authorization", encoded);
+		createAuthHeader(post);
 
 		String body = enviarInstrucao.getXML();
 
@@ -56,17 +51,50 @@ public abstract class SendToMoip {
 			System.out.println(status);
 
 			XStream xstream = new XStream();
-			xstream.processAnnotations(EnviarInstrucaoUnicaResponse.class);
+			xstream.processAnnotations(SendSingleInstructionResponse.class);
 
-			return (EnviarInstrucaoUnicaResponse) xstream.fromXML(post
+			return (SendSingleInstructionResponse) xstream.fromXML(post
 					.getResponseBodyAsString());
 		} catch (Exception e) {
 
 			throw new MoipClientException(e);
 		} finally {
-
 			post.releaseConnection();
 		}
+	}
+
+	public void send (QueryParcel query) {
+		HttpClient client = new HttpClient();
+		
+		String url = getEnviroment() + query.getPath() + "/" + query.getLogin() 
+				+ "/" + query.getMaxParcel() + "/" + query.getInterest() + "/" + query.getValue();
+		
+		GetMethod get = new GetMethod(url);
+
+		createAuthHeader(get);
+
+		try {
+			int status = client.executeMethod(get);
+			System.out.println(status);
+			System.out.println(get.getResponseBodyAsString());
+		} catch (Exception e) {
+
+			throw new MoipClientException(e);
+		} finally {
+			get.releaseConnection();
+		}
+	}
+	
+	private void createAuthHeader(HttpMethod method) {
+		String authHeader = token + ":" + key;
+		String hash = this.hash;
+		if (!hasHash()) {
+			hash = new String(Base64.encodeBase64(authHeader.getBytes()));
+		}
+		String encoded = "Basic " + hash;
+
+		method.setRequestHeader("Authorization", encoded);
+		method.setDoAuthentication(true);
 	}
 
 	public abstract String getEnviroment();
@@ -75,31 +103,19 @@ public abstract class SendToMoip {
 		return hash != null && !"".equals(hash);
 	}
 
-	public SendToMoip comToken(final String token) {
+	public SendToMoip withToken(final String token) {
 		this.token = token;
 		return this;
 	}
 
-	public SendToMoip comKey(final String key) {
+	public SendToMoip withKey(final String key) {
 		this.key = key;
 		return this;
 	}
 
-	public SendToMoip comHash(final String hash) {
+	public SendToMoip withHash(final String hash) {
 		this.hash = hash;
 		return this;
-	}
-
-	public void setToken(final String token) {
-		this.token = token;
-	}
-
-	public void setKey(final String key) {
-		this.key = key;
-	}
-
-	public void setHash(final String hash) {
-		this.hash = hash;
 	}
 
 }

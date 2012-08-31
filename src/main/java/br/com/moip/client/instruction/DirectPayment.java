@@ -1,8 +1,9 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-public class PagamentoDireto {
+@XStreamAlias("PagamentoDireto")
+public class DirectPayment {
 
 	@XStreamAlias("Forma")
 	private String forma;
@@ -11,31 +12,31 @@ public class PagamentoDireto {
 	private String instituicao;
 
 	@XStreamAlias("CartaoCredito")
-	private CartaoCredito cartaoCredito;
+	private CreditCard cartaoCredito;
 
 	@XStreamAlias("Parcelamento")
-	private Parcelamento parcelamento;
+	private Parcel parcelamento;
 
-	public static PagamentoDireto pagamentoDireto() {
-		return new PagamentoDireto();
+	public static DirectPayment directPayment() {
+		return new DirectPayment();
 	}
 
-	public PagamentoDireto comForma(final String forma) {
+	public DirectPayment withPaymentForm(final String forma) {
 		this.forma = forma;
 		return this;
 	}
 
-	public PagamentoDireto comInstituicao(final String instituicao) {
+	public DirectPayment withInstitution(final String instituicao) {
 		this.instituicao = instituicao;
 		return this;
 	}
 
-	public PagamentoDireto comCartaoCredito(final CartaoCredito cartaoCredito) {
+	public DirectPayment withCreditCard(final CreditCard cartaoCredito) {
 		this.cartaoCredito = cartaoCredito;
 		return this;
 	}
 
-	public PagamentoDireto comParcelamento(final Parcelamento parcelamento) {
+	public DirectPayment withParcel(final Parcel parcelamento) {
 		this.parcelamento = parcelamento;
 		return this;
 	}
@@ -56,19 +57,19 @@ public class PagamentoDireto {
 		this.instituicao = instituicao;
 	}
 
-	public CartaoCredito getCartaoCredito() {
+	public CreditCard getCartaoCredito() {
 		return cartaoCredito;
 	}
 
-	public void setCartaoCredito(final CartaoCredito cartaoCredito) {
+	public void setCartaoCredito(final CreditCard cartaoCredito) {
 		this.cartaoCredito = cartaoCredito;
 	}
 
-	public Parcelamento getParcelamento() {
+	public Parcel getParcelamento() {
 		return parcelamento;
 	}
 
-	public void setParcelamento(final Parcelamento parcelamento) {
+	public void setParcelamento(final Parcel parcelamento) {
 		this.parcelamento = parcelamento;
 	}
 

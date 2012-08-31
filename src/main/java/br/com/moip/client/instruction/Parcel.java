@@ -1,9 +1,9 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("Parcelamento")
-public class Parcelamento {
+public class Parcel {
 
 	@XStreamAlias("MinimoParcelas")
 	private String minimoParcelas;
@@ -20,31 +20,31 @@ public class Parcelamento {
 	@XStreamAlias("Repassar")
 	private String repassar;
 
-	public static Parcelamento parcelamento() {
-		return new Parcelamento();
+	public static Parcel parcel() {
+		return new Parcel();
 	}
 
-	public Parcelamento comMinimoParcelas(final String minimoParcelas) {
+	public Parcel withMinimumParcels(final String minimoParcelas) {
 		this.minimoParcelas = minimoParcelas;
 		return this;
 	}
 	
-	public Parcelamento comMaximoParcelas(final String maximoParcelas) {
+	public Parcel withMaximumParcels(final String maximoParcelas) {
 		this.maximoParcelas = maximoParcelas;
 		return this;
 	}
 
-	public Parcelamento comRecebimento(final String recebimento) {
+	public Parcel withReceptionType(final String recebimento) {
 		this.recebimento = recebimento;
 		return this;
 	}
 
-	public Parcelamento comJuros(final String juros) {
+	public Parcel withInterest(final String juros) {
 		this.juros = juros;
 		return this;
 	}
 
-	public Parcelamento comRepasse(final String repassar) {
+	public Parcel withTransfer(final String repassar) {
 		this.repassar = repassar;
 		return this;
 	}

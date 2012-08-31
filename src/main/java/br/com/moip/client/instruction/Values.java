@@ -1,9 +1,10 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
-public class Valores {
+@XStreamAlias("Valores")
+public class Values {
 
 	@XStreamAlias("Valor")
 	private String valor;
@@ -11,16 +12,16 @@ public class Valores {
 	@XStreamAsAttribute
 	private String moeda = "BRL";
 
-	public static Valores valores() {
-		return new Valores();
+	public static Values values() {
+		return new Values();
 	}
 
-	public Valores comValor(final String valor) {
+	public Values withValue(final String valor) {
 		this.valor = valor;
 		return this;
 	}
 
-	public Valores comTipoMoeda(final String moeda) {
+	public Values comTipoMoeda(final String moeda) {
 		this.moeda = moeda;
 		return this;
 	}

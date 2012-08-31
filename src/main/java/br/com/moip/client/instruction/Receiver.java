@@ -1,8 +1,9 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-public class Recebedor {
+@XStreamAlias("Recebedor")
+public class Receiver {
 
 	@XStreamAlias("LoginMoIP")
 	private String loginMoIP;
@@ -10,16 +11,16 @@ public class Recebedor {
 	@XStreamAlias("Apelido")
 	private String apelido;
 
-	public static Recebedor recebedor() {
-		return new Recebedor();
+	public static Receiver receiver() {
+		return new Receiver();
 	}
 
-	public Recebedor comLoginMoip(final String loginMoIP) {
+	public Receiver withMoipLogin(final String loginMoIP) {
 		this.loginMoIP = loginMoIP;
 		return this;
 	}
 
-	public Recebedor comApelido(final String apelido) {
+	public Receiver withNickname(final String apelido) {
 		this.apelido = apelido;
 		return this;
 	}

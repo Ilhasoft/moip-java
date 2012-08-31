@@ -1,8 +1,9 @@
-package br.com.moip.client;
+package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-public class Endereco {
+@XStreamAlias("Endereco")
+public class Address {
 
     @XStreamAlias("Logradouro")
     private String logradouro;
@@ -31,55 +32,51 @@ public class Endereco {
     @XStreamAlias("TelefoneFixo")
     private String telefoneFixo;
 
-    public static Endereco enderecoCobranca() {
-        return new Endereco();
+    public static Address billingAdress() {
+        return new Address();
     }
 
-    public static Endereco enderecoEntrega() {
-        return new Endereco();
-    }
-
-    public Endereco comLogradouro(final String logradouro) {
+    public Address withAddress(final String logradouro) {
         this.logradouro = logradouro;
         return this;
     }
 
-    public Endereco comNumero(final String numero) {
+    public Address withNumber(final String numero) {
         this.numero = numero;
         return this;
     }
 
-    public Endereco comComplemento(final String complemento) {
+    public Address withComplement(final String complemento) {
         this.complemento = complemento;
         return this;
     }
 
-    public Endereco comBairro(final String bairro) {
+    public Address withNeighborhood(final String bairro) {
         this.bairro = bairro;
         return this;
     }
 
-    public Endereco comCidade(final String cidade) {
+    public Address withCity(final String cidade) {
         this.cidade = cidade;
         return this;
     }
 
-    public Endereco comEstado(final String estado) {
+    public Address withState(final String estado) {
         this.estado = estado;
         return this;
     }
 
-    public Endereco comPais(final String pais) {
+    public Address withCountry(final String pais) {
         this.pais = pais;
         return this;
     }
 
-    public Endereco comCep(final String cep) {
+    public Address withZipCode(final String cep) {
         this.cep = cep;
         return this;
     }
 
-    public Endereco comTelefoneFixo(final String telefoneFixo) {
+    public Address withPhone(final String telefoneFixo) {
         this.telefoneFixo = telefoneFixo;
         return this;
     }

@@ -1,91 +1,91 @@
-import static br.com.moip.client.Boleto.boleto;
-import static br.com.moip.client.CartaoCredito.cartaoCredito;
-import static br.com.moip.client.Comissionado.comissionado;
-import static br.com.moip.client.Comissionamento.comissionamento;
-import static br.com.moip.client.Endereco.enderecoCobranca;
-import static br.com.moip.client.InstrucaoUnica.instrucaoUnica;
-import static br.com.moip.client.Pagador.pagador;
-import static br.com.moip.client.PagamentoDireto.pagamentoDireto;
-import static br.com.moip.client.Parcelamento.parcelamento;
-import static br.com.moip.client.Portador.portador;
-import static br.com.moip.client.Recebedor.recebedor;
-import static br.com.moip.client.Valores.valores;
-import br.com.moip.client.EnviarInstrucao;
-import br.com.moip.client.response.EnviarInstrucaoUnicaResponse;
+import static br.com.moip.client.instruction.Address.billingAdress;
+import static br.com.moip.client.instruction.Billet.billet;
+import static br.com.moip.client.instruction.Comissioned.commissioned;
+import static br.com.moip.client.instruction.Comissioning.commissioning;
+import static br.com.moip.client.instruction.CreditCard.creditCard;
+import static br.com.moip.client.instruction.DirectPayment.directPayment;
+import static br.com.moip.client.instruction.Holder.holder;
+import static br.com.moip.client.instruction.Parcel.parcel;
+import static br.com.moip.client.instruction.Payer.payer;
+import static br.com.moip.client.instruction.Receiver.receiver;
+import static br.com.moip.client.instruction.SingleInstruction.singleInstruction;
+import static br.com.moip.client.instruction.Values.values;
+import br.com.moip.client.instruction.SendInstruction;
+import br.com.moip.client.query.QueryParcel;
 import br.com.moip.client.send.SandboxMoip;
 
 public class Test {
 
 	public static void main(final String[] args) {
 
-		EnviarInstrucao enviarInstrucao = new EnviarInstrucao()
-				.comInstrucaoUnica(instrucaoUnica()
-						.comRazao("Uma motivo pela compra")
-						.comIdProprio("teste")
-						.com(pagador()
-								.comNome("Breno Oliveira")
-								.comEmail("breno26@gmail.com")
-								.comIdentidade("222.222.222-22")
-								.comTelefoneCelular("(61)9999-9999")
-								.comEnderecoCobranca(
-										enderecoCobranca()
-												.comLogradouro("Rua Vergueiro")
-												.comNumero("853")
-												.comBairro("Vila Mariano")
-												.comCep("04600-021")
-												.comCidade("Sao Paulo")
-												.comEstado("SP")
-												.comPais("BRA")
-												.comTelefoneFixo(
+		SendInstruction enviarInstrucao = new SendInstruction()
+				.withSingleInstruction(singleInstruction()
+						.withReason("Uma motivo pela compra")
+						.withUniqueId("teste")
+						.with(payer()
+								.withName("Breno Oliveira")
+								.withEmail("breno26@gmail.com")
+								.withIdentity("222.222.222-22")
+								.withCellphone("(61)9999-9999")
+								.withBillingAddress(
+										billingAdress()
+												.withAddress("Rua Vergueiro")
+												.withNumber("853")
+												.withNeighborhood("Vila Mariano")
+												.withZipCode("04600-021")
+												.withCity("Sao Paulo")
+												.withState("SP")
+												.withCountry("BRA")
+												.withPhone(
 														"(22)2222-2222")))
-						.com(pagamentoDireto()
-								.comForma("BoletoBancario")
-								.comCartaoCredito(
-										cartaoCredito()
-												.comNumero("3456789012345640")
-												.comExpiracao("08/11")
-												.comCodigoSeguranca("123")
-												.comPortador(
-														portador()
-																.comDataNascimento(
+						.with(directPayment()
+								.withPaymentForm("BoletoBancario")
+								.withCreditCard(
+										creditCard()
+												.withNumber("3456789012345640")
+												.withExpiration("08/11")
+												.withPIN("123")
+												.withHolder(
+														holder()
+																.withBirthDate(
 																		"12/12/2012")
-																.comNome(
+																.withName(
 																		"Breno Oliveira")
-																.comIdentidade(
+																.withIdentity(
 																		"22222222222")
-																.comTipoDocumento(
+																.withDocumentType(
 																		"cpf"))))
-						.com(boleto().comDiasParaExpiracao("5"))
-						.com(valores().comValor("15.00"))
-						.com(recebedor().comLoginMoip("teste").comApelido("tt"))
-						.com(comissionamento()
-										.comComissionado(
-												comissionado().comissionado(
+						.with(billet().withDaysToExpire("5"))
+						.with(values().withValue("15.00"))
+						.with(receiver().withMoipLogin("teste").withNickname("tt"))
+						.with(commissioning()
+										.withCommissioned(
+												commissioned().comissioned(
 														"likestore"))
-										.comValorPercentual("2")
-										.comValorFixo("0.39")
-										.comRazao("Percentual LikeStore"))
-						.com(comissionamento()
-										.comComissionado(
-												comissionado().comissionado(
-														"mussum"))
-										.comValorPercentual("6")
-										.comValorFixo("0.93")
-										.comRazao("Cacildis"))
-						.com(parcelamento()
-								.comMinimoParcelas("1")
-								.comMaximoParcelas("3")
-								.comJuros("1.0")
-								.comRecebimento("AVista")
-								.comRepasse("true"))
-						.com(parcelamento()
-								.comMinimoParcelas("4")
-								.comMaximoParcelas("6")
-								.comJuros("2.0")
-								.comRecebimento("AVista")
-								.comRepasse("false"))
-						.comURLNotificacao("http://meu.site.com/nasp")
-						.comURLRetorno("http://meu.site.com/retorno")
+										.withPercentValue("2")
+										.withFixedValue("0.39")
+										.withReason("Percentual LikeStore"))
+						.with(commissioning()
+										.withCommissioned(
+												commissioned().comissioned(
+														"febpetroni"))
+										.withPercentValue("6")
+										.withFixedValue("0.93")
+										.withReason("Cacildis"))
+						.with(parcel()
+								.withMinimumParcels("1")
+								.withMaximumParcels("3")
+								.withInterest("1.0")
+								.withReceptionType("AVista")
+								.withTransfer("true"))
+						.with(parcel()
+								.withMinimumParcels("4")
+								.withMaximumParcels("6")
+								.withInterest("2.0")
+								.withReceptionType("AVista")
+								.withTransfer("false"))
+						.withNotificationURL("http://meu.site.com/nasp")
+						.withReturnURL("http://meu.site.com/retorno")
 						);
 
 		enviarInstrucao.validate();
@@ -93,11 +93,16 @@ public class Test {
 
 		System.out.println("--------------------------------");
 		
-		 EnviarInstrucaoUnicaResponse response = new SandboxMoip()
-		 	.comToken("AVINJJDLJ6OOJOLR1ZUE3CZXISIE0JIH")
-		 	.comKey("QLP9LUVYJ7Q5TQCV3T7LFB4AOXUDM5Z7MZJNTEFJ").send(enviarInstrucao);
-		
-		 System.out.println(response);
+//		 SendSingleInstructionResponse response = new SandboxMoip()
+//		 	.withToken("AVINJJDLJ6OOJOLR1ZUE3CZXISIE0JIH")
+//		 	.withKey("QLP9LUVYJ7Q5TQCV3T7LFB4AOXUDM5Z7MZJNTEFJ").send(enviarInstrucao);
+//		
+//		 System.out.println(response);
 
+		new SandboxMoip()
+		 	.withToken("AVINJJDLJ6OOJOLR1ZUE3CZXISIE0JIH")
+		 	.withKey("QLP9LUVYJ7Q5TQCV3T7LFB4AOXUDM5Z7MZJNTEFJ").send(
+	 			new QueryParcel("febpetroni", "12", "1.99", "120.00"));
+	 	
 	}
 }
