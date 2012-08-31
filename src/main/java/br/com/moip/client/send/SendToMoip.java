@@ -38,7 +38,7 @@ public abstract class SendToMoip {
 		String authHeader = token + ":" + key;
 		String hash = this.hash;
 		if (!hasHash()) {
-			hash = Base64.encodeBase64(authHeader.getBytes()).toString();
+			hash = new String(Base64.encodeBase64(authHeader.getBytes()));
 		}
 		String encoded = "Basic " + hash;
 
