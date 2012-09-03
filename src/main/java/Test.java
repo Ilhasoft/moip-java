@@ -12,6 +12,7 @@ import static br.com.moip.client.instruction.SingleInstruction.singleInstruction
 import static br.com.moip.client.instruction.Values.values;
 import br.com.moip.client.instruction.SendInstruction;
 import br.com.moip.client.query.QueryParcel;
+import br.com.moip.client.response.CheckParcelValuesResponse;
 import br.com.moip.client.send.SandboxMoip;
 
 public class Test {
@@ -99,10 +100,11 @@ public class Test {
 //		
 //		 System.out.println(response);
 
-		new SandboxMoip()
+		CheckParcelValuesResponse response = new SandboxMoip()
 		 	.withToken("AVINJJDLJ6OOJOLR1ZUE3CZXISIE0JIH")
 		 	.withKey("QLP9LUVYJ7Q5TQCV3T7LFB4AOXUDM5Z7MZJNTEFJ").send(
 	 			new QueryParcel("febpetroni", "12", "1.99", "120.00"));
 	 	
+		System.out.println(response.getXML());
 	}
 }

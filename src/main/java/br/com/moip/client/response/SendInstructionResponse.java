@@ -6,13 +6,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 @XStreamAlias("Resposta")
-public class Response {
-
-    @XStreamAlias("ID")
-    private String id;
-
-    @XStreamAlias("Status")
-    private String status;
+public class SendInstructionResponse extends BaseResponse {
 
     @XStreamAlias("Token")
     private String token;
@@ -22,14 +16,6 @@ public class Response {
 
     @XStreamAlias("RespostaPagamentoDireto")
     private DirectPaymentResponse respostaPagamentoDireto;
-
-    public String getId() {
-        return id;
-    }
-
-    public String getStatus() {
-        return status;
-    }
 
     public String getToken() {
         return token;

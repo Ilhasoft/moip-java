@@ -11,6 +11,7 @@ import org.apache.commons.httpclient.methods.StringRequestEntity;
 import br.com.moip.client.exception.MoipClientException;
 import br.com.moip.client.instruction.SendInstruction;
 import br.com.moip.client.query.QueryParcel;
+import br.com.moip.client.response.CheckParcelValuesResponse;
 import br.com.moip.client.response.SendSingleInstructionResponse;
 
 import com.thoughtworks.xstream.XStream;
@@ -63,7 +64,7 @@ public abstract class SendToMoip {
 		}
 	}
 
-	public void send (QueryParcel query) {
+	public CheckParcelValuesResponse send (QueryParcel query) {
 		HttpClient client = new HttpClient();
 		
 		String url = getEnviroment() + query.getPath() + "/" + query.getLogin() 
@@ -77,6 +78,12 @@ public abstract class SendToMoip {
 			int status = client.executeMethod(get);
 			System.out.println(status);
 			System.out.println(get.getResponseBodyAsString());
+			
+			XStream xstream = new XStream();
+			xstream.processAnnotations(CheckParcelValuesResponse.class);
+
+			return (CheckParcelValuesResponse) xstream.fromXML(get
+					.getResponseBodyAsString());
 		} catch (Exception e) {
 
 			throw new MoipClientException(e);
