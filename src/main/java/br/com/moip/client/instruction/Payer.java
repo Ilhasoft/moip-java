@@ -6,7 +6,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class Payer {
 
     @XStreamAlias("Nome")
-    private String nome;
+    private String name;
 
     @XStreamAlias("Email")
     private String email;
@@ -15,26 +15,26 @@ public class Payer {
     private String payerID;
     
     @XStreamAlias("TelefoneCelular")
-    private String telefoneCelular;
+    private String cellphone;
 
     @XStreamAlias("Apelido")
-    private String apelido;
+    private String nickname;
 
     @XStreamAlias("Identidade")
-    private String identidade;
+    private String identity;
 
     @XStreamAlias("EnderecoCobranca")
-    private Address enderecoCobranca;
+    private Address billingAddress;
 
     @XStreamAlias("EnderecoEntrega")
-    private Address enderecoEntrega;
+    private Address deliveryAddress;
 
     public static Payer payer() {
         return new Payer();
     }
 
     public Payer withName(final String nome) {
-        this.nome = nome;
+        this.name = nome;
         return this;
     }
 
@@ -44,22 +44,22 @@ public class Payer {
     }
 
     public Payer withCellphone(final String telefoneCelular) {
-        this.telefoneCelular = telefoneCelular;
+        this.cellphone = telefoneCelular;
         return this;
     }
 
     public Payer withNickname(final String apelido) {
-        this.apelido = apelido;
+        this.nickname = apelido;
         return this;
     }
 
     public Payer withIdentity(final String identidade) {
-        this.identidade = identidade;
+        this.identity = identidade;
         return this;
     }
 
     public Payer withBillingAddress(final Address enderecoCobranca) {
-        this.enderecoCobranca = enderecoCobranca;
+        this.billingAddress = enderecoCobranca;
         return this;
     }
 
@@ -67,64 +67,37 @@ public class Payer {
         this.payerID = payerID;
         return this;
     }
-    
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(final String nome) {
-        this.nome = nome;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(final String email) {
-        this.email = email;
-    }
-
-    public String getTelefoneCelular() {
-        return telefoneCelular;
-    }
-
-    public void setTelefoneCelular(final String telefoneCelular) {
-        this.telefoneCelular = telefoneCelular;
-    }
-
-    public String getApelido() {
-        return apelido;
-    }
-
-    public void setApelido(final String apelido) {
-        this.apelido = apelido;
-    }
-
-    public String getIdentidade() {
-        return identidade;
-    }
-
-    public void setIdentidade(final String identidade) {
-        this.identidade = identidade;
-    }
-
-    public Address getEnderecoCobranca() {
-        return enderecoCobranca;
-    }
-
-    public void setEnderecoCobranca(final Address enderecoCobranca) {
-        this.enderecoCobranca = enderecoCobranca;
-    }
-
-    public Address getEnderecoEntrega() {
-        return enderecoEntrega;
-    }
-
-    public void setEnderecoEntrega(final Address enderecoEntrega) {
-        this.enderecoEntrega = enderecoEntrega;
-    }
-
-    public String getPayerID() {
+	public String getPayerID() {
 		return payerID;
 	}
+
+	public String getCellphone() {
+		return cellphone;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public String getIdentity() {
+		return identity;
+	}
+
+	public Address getBillingAddress() {
+		return billingAddress;
+	}
+
+	public Address getDeliveryAddress() {
+		return deliveryAddress;
+	}
+    
 }

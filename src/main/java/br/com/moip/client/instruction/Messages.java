@@ -11,7 +11,7 @@ public class Messages {
 
 	@XStreamImplicit(itemFieldName = "Mensagem")
 	@XStreamAlias("Mensagem")
-	private List<String> mensagens;
+	private List<String> messages;
 
 	public static Messages messages() {
 		return new Messages();
@@ -19,10 +19,10 @@ public class Messages {
 
 	public Messages addMessage(final String mensagem) {
 
-		if (this.mensagens == null) {
-			this.mensagens = new ArrayList<String>();
+		if (this.messages == null) {
+			this.messages = new ArrayList<String>();
 		}
-		mensagens.add(mensagem);
+		messages.add(mensagem);
 		return this;
 	}
 

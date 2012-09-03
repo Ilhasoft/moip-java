@@ -34,6 +34,8 @@ public abstract class SendToMoip {
 
 	public SendSingleInstructionResponse send(
 			final SendInstruction enviarInstrucao) {
+		enviarInstrucao.validate();
+		
 		HttpClient client = new HttpClient();
 		
 		PostMethod post = new PostMethod(getEnviroment() + enviarInstrucao.getPath());
@@ -42,13 +44,14 @@ public abstract class SendToMoip {
 
 		String body = enviarInstrucao.getXML();
 
+		int status = 200;
 		try {
 
 			RequestEntity requestEntity = new StringRequestEntity(body,
 					"application/x-www-formurlencoded", "UTF-8");
 			post.setRequestEntity(requestEntity);
 
-			int status = client.executeMethod(post);
+			status = client.executeMethod(post);
 			System.out.println(status);
 
 			XStream xstream = new XStream();
@@ -58,13 +61,15 @@ public abstract class SendToMoip {
 					.getResponseBodyAsString());
 		} catch (Exception e) {
 
-			throw new MoipClientException(e);
+			throw new MoipClientException(status, e);
 		} finally {
 			post.releaseConnection();
 		}
 	}
 
 	public CheckParcelValuesResponse send (QueryParcel query) {
+		query.validate();
+		
 		HttpClient client = new HttpClient();
 		
 		String url = getEnviroment() + query.getPath() + "/" + query.getLogin() 
@@ -74,18 +79,19 @@ public abstract class SendToMoip {
 
 		createAuthHeader(get);
 
+		int status = 200;
 		try {
-			int status = client.executeMethod(get);
+			status = client.executeMethod(get);
 			System.out.println(status);
 			
 			XStream xstream = new XStream();
 			xstream.processAnnotations(CheckParcelValuesResponse.class);
-
+			
 			return (CheckParcelValuesResponse) xstream.fromXML(get
 					.getResponseBodyAsString());
 		} catch (Exception e) {
 
-			throw new MoipClientException(e);
+			throw new MoipClientException(status, e);
 		} finally {
 			get.releaseConnection();
 		}

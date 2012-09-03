@@ -9,7 +9,7 @@ public class Receiver {
 	private String loginMoIP;
 
 	@XStreamAlias("Apelido")
-	private String apelido;
+	private String nickname;
 
 	public static Receiver receiver() {
 		return new Receiver();
@@ -21,7 +21,7 @@ public class Receiver {
 	}
 
 	public Receiver withNickname(final String apelido) {
-		this.apelido = apelido;
+		this.nickname = apelido;
 		return this;
 	}
 
@@ -29,16 +29,8 @@ public class Receiver {
 		return loginMoIP;
 	}
 
-	public void setLoginMoIP(final String loginMoIP) {
-		this.loginMoIP = loginMoIP;
-	}
-
-	public String getApelido() {
-		return apelido;
-	}
-
-	public void setApelido(final String apelido) {
-		this.apelido = apelido;
+	public String getNickname() {
+		return nickname;
 	}
 
 }

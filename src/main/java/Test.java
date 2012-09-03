@@ -7,7 +7,8 @@ import br.com.moip.client.instruction.Payer;
 import br.com.moip.client.instruction.Receiver;
 import br.com.moip.client.instruction.SendInstruction;
 import br.com.moip.client.instruction.Values;
-import br.com.moip.client.response.SendSingleInstructionResponse;
+import br.com.moip.client.query.QueryParcel;
+import br.com.moip.client.response.CheckParcelValuesResponse;
 import br.com.moip.client.send.SandboxMoip;
 
 public class Test {
@@ -49,13 +50,13 @@ public class Test {
 										.withFixedValue("0.39")
 										.withReason("Percentual LikeStore")
 								)
-//						.with(commissioning()
-//										.withCommissioned(
-//												commissioned().comissioned(
-//														"febpetroni"))
-//										.withPercentValue("6")
-//										.withFixedValue("0.93")
-//										.withReason("Cacildis"))
+						.with(Comissioning.comissioning()
+										.withComissioned(
+												Comissioned.comissioned().comissioned(
+														"febpetroni"))
+										.withPercentValue("6")
+										.withFixedValue("0.93")
+										.withReason("Cacildis"))
 						.with(Parcel.parcel()
 								.withMinimumParcels("1")
 								.withMaximumParcels("3")
@@ -63,32 +64,32 @@ public class Test {
 								.withReceptionType("AVista")
 								.withTransfer("true")
 						)
-//						.with(parcel()
-//								.withMinimumParcels("4")
-//								.withMaximumParcels("6")
-//								.withInterest("2.0")
-//								.withReceptionType("AVista")
-//								.withTransfer("false"))
+						.with(Parcel.parcel()
+								.withMinimumParcels("4")
+								.withMaximumParcels("6")
+								.withInterest("2.0")
+								.withReceptionType("AVista")
+								.withTransfer("false"))
 						.withNotificationURL("http://meu.site.com/nasp")
 						.withReturnURL("http://meu.site.com/retorno")
 						);
 
-		enviarInstrucao.validate();
 		System.out.println(enviarInstrucao.getXML());
 
 		System.out.println("--------------------------------");
 		
-		 SendSingleInstructionResponse response = new SandboxMoip()
-		 	.withToken("AVINJJDLJ6OOJOLR1ZUE3CZXISIE0JIH")
-		 	.withKey("QLP9LUVYJ7Q5TQCV3T7LFB4AOXUDM5Z7MZJNTEFJ").send(enviarInstrucao);
-		
-		 System.out.println(response);
-		 
-//		CheckParcelValuesResponse response = new SandboxMoip()
+//		 SendSingleInstructionResponse response = new SandboxMoip()
 //		 	.withToken("AVINJJDLJ6OOJOLR1ZUE3CZXISIE0JIH")
-//		 	.withKey("QLP9LUVYJ7Q5TQCV3T7LFB4AOXUDM5Z7MZJNTEFJ").send(
-//	 			new QueryParcel("febpetroni", "12", "1.99", "120.00"));
-//	 	
-//		System.out.println(response.getXML());
+//		 	.withKey("QLP9LUVYJ7Q5TQCV3T7LFB4AOXUDM5Z7MZJNTEFJ").send(enviarInstrucao);
+		
+//		 System.out.println(response);
+		 
+		CheckParcelValuesResponse response = new SandboxMoip()
+		 	.withToken("AVINJJDLJ6OOJOLR1ZUE3CZXISIE0JIH")
+		 	.withKey("QLP9LUVYJ7Q5TQCV3T7LFB4AOXUDM5Z7MZJNTEFJ").send(
+	 			new QueryParcel("febpetroni", "12", "1.99", "120.00")
+	 			);
+	 	
+		System.out.println(response.getXML());
 	}
 }

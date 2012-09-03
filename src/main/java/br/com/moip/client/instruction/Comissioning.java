@@ -6,13 +6,13 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class Comissioning {
 
 	@XStreamAlias("ValorPercentual")
-	private String valorPercentual;
+	private String percentValue;
 	
 	@XStreamAlias("ValorFixo")
-	private String valorFixo;
+	private String fixedValue;
 
 	@XStreamAlias("Comissionado")
-	private Comissioned comissionado;
+	private Comissioned comissioned;
 
 	@XStreamAlias("Razao")
 	private String razao;
@@ -27,50 +27,34 @@ public class Comissioning {
 	}
 
 	public Comissioning withPercentValue(final String valor) {
-		this.valorPercentual = valor;
+		this.percentValue = valor;
 		return this;
 	}
 	
 	public Comissioning withFixedValue(final String valor) {
-		this.valorFixo = valor;
+		this.fixedValue = valor;
 		return this;
 	}
 
 	public Comissioning withComissioned(final Comissioned comissionado) {
-		this.comissionado = comissionado;
+		this.comissioned = comissionado;
 		return this;
 	}
 
-	public Comissioned getComissionado() {
-		return comissionado;
+	public String getPercentValue() {
+		return percentValue;
 	}
 
-	public void setComissionado(final Comissioned comissionado) {
-		this.comissionado = comissionado;
+	public String getFixedValue() {
+		return fixedValue;
 	}
 
-	public String getValorPercentual() {
-		return valorPercentual;
+	public Comissioned getComissioned() {
+		return comissioned;
 	}
 
-	public void setValorPercentual(final String valorPercentual) {
-		this.valorPercentual = valorPercentual;
-	}
-
-	public String getValorFixo() {
-		return valorFixo;
-	}
-	
-	public void setValorFixo(String valorFixo) {
-		this.valorFixo = valorFixo;
-	}
-	
 	public String getRazao() {
 		return razao;
-	}
-
-	public void setRazao(final String razao) {
-		this.razao = razao;
 	}
 
 }

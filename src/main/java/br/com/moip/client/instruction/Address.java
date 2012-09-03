@@ -6,150 +6,115 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class Address {
 
     @XStreamAlias("Logradouro")
-    private String logradouro;
+    private String address;
 
     @XStreamAlias("Numero")
-    private String numero;
+    private String number;
 
     @XStreamAlias("Complemento")
-    private String complemento;
+    private String complement;
 
     @XStreamAlias("Bairro")
-    private String bairro;
+    private String neighborhood;
 
     @XStreamAlias("Cidade")
-    private String cidade;
+    private String city;
 
     @XStreamAlias("Estado")
-    private String estado;
+    private String state;
 
     @XStreamAlias("Pais")
-    private String pais;
+    private String country;
 
     @XStreamAlias("CEP")
-    private String cep;
+    private String zipCode;
 
     @XStreamAlias("TelefoneFixo")
-    private String telefoneFixo;
+    private String phone;
 
     public static Address billingAdress() {
         return new Address();
     }
 
     public Address withAddress(final String logradouro) {
-        this.logradouro = logradouro;
+        this.address = logradouro;
         return this;
     }
 
     public Address withNumber(final String numero) {
-        this.numero = numero;
+        this.number = numero;
         return this;
     }
 
     public Address withComplement(final String complemento) {
-        this.complemento = complemento;
+        this.complement = complemento;
         return this;
     }
 
     public Address withNeighborhood(final String bairro) {
-        this.bairro = bairro;
+        this.neighborhood = bairro;
         return this;
     }
 
     public Address withCity(final String cidade) {
-        this.cidade = cidade;
+        this.city = cidade;
         return this;
     }
 
     public Address withState(final String estado) {
-        this.estado = estado;
+        this.state = estado;
         return this;
     }
 
     public Address withCountry(final String pais) {
-        this.pais = pais;
+        this.country = pais;
         return this;
     }
 
     public Address withZipCode(final String cep) {
-        this.cep = cep;
+        this.zipCode = cep;
         return this;
     }
 
     public Address withPhone(final String telefoneFixo) {
-        this.telefoneFixo = telefoneFixo;
+        this.phone = telefoneFixo;
         return this;
     }
 
-    public String getLogradouro() {
-        return logradouro;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setLogradouro(final String logradouro) {
-        this.logradouro = logradouro;
-    }
+	public String getNumber() {
+		return number;
+	}
 
-    public String getNumero() {
-        return numero;
-    }
+	public String getComplement() {
+		return complement;
+	}
 
-    public void setNumero(final String numero) {
-        this.numero = numero;
-    }
+	public String getNeighborhood() {
+		return neighborhood;
+	}
 
-    public String getComplemento() {
-        return complemento;
-    }
+	public String getCity() {
+		return city;
+	}
 
-    public void setComplemento(final String complemento) {
-        this.complemento = complemento;
-    }
+	public String getState() {
+		return state;
+	}
 
-    public String getBairro() {
-        return bairro;
-    }
+	public String getCountry() {
+		return country;
+	}
 
-    public void setBairro(final String bairro) {
-        this.bairro = bairro;
-    }
+	public String getZipCode() {
+		return zipCode;
+	}
 
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(final String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(final String estado) {
-        this.estado = estado;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(final String pais) {
-        this.pais = pais;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(final String cep) {
-        this.cep = cep;
-    }
-
-    public String getTelefoneFixo() {
-        return telefoneFixo;
-    }
-
-    public void setTelefoneFixo(final String telefoneFixo) {
-        this.telefoneFixo = telefoneFixo;
-    }
+	public String getPhone() {
+		return phone;
+	}
+    
 }

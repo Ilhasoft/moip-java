@@ -7,39 +7,31 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 public class Values {
 
 	@XStreamAlias("Valor")
-	private String valor;
+	private String value;
 
 	@XStreamAsAttribute
-	private String moeda = "BRL";
+	private String currency = "BRL";
 
 	public static Values values() {
 		return new Values();
 	}
 
 	public Values withValue(final String valor) {
-		this.valor = valor;
+		this.value = valor;
 		return this;
 	}
 
-	public Values comTipoMoeda(final String moeda) {
-		this.moeda = moeda;
+	public Values withCurrency(final String moeda) {
+		this.currency = moeda;
 		return this;
 	}
 
-	public String getValor() {
-		return valor;
+	public String getValue() {
+		return value;
 	}
 
-	public void setValor(final String valor) {
-		this.valor = valor;
-	}
-
-	public String getMoeda() {
-		return moeda;
-	}
-
-	public void setMoeda(final String moeda) {
-		this.moeda = moeda;
+	public String getCurrency() {
+		return currency;
 	}
 
 }

@@ -9,9 +9,16 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 public class ParcelValuesResponse extends BaseResponse {
 
 	@XStreamImplicit(itemFieldName="ValorDaParcela")
-    private List<ParcelValue> valores;
+    private List<ParcelValue> values;
 	
-	public List<ParcelValue> getValores() {
-		return valores;
+	@XStreamImplicit(itemFieldName="Erro")
+    private List<Error> errors;
+	
+	public List<ParcelValue> getValues() {
+		return values;
+	}
+	
+	public List<Error> getErrors() {
+		return errors;
 	}
 }

@@ -7,10 +7,10 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class SendSingleInstructionResponse {
 
 	@XStreamAlias("Resposta")
-	private SendInstructionResponse resposta;
+	private SendInstructionResponse response;
 
-	public SendInstructionResponse getResposta() {
-		return resposta;
+	public SendInstructionResponse getResponse() {
+		return response;
 	}
 
 	public String getXML() {

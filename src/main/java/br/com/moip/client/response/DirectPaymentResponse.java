@@ -6,88 +6,60 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class DirectPaymentResponse {
 
 	@XStreamAlias("TotalPago")
-	private String totalPago;
+	private String totalPaid;
 
 	@XStreamAlias("TaxaMoIP")
-	private String taxaMoIP;
+	private String moipTax;
 
 	@XStreamAlias("Status")
 	private String status;
 
 	@XStreamAlias("CodigoMoIP")
-	private String codigoMoIP;
+	private String moipCode;
 
 	@XStreamAlias("Mensagem")
-	private String mensagem;
+	private String message;
 
 	@XStreamAlias("CodigoRetorno")
-	private String codigoRetorno;
+	private String returnCode;
 
 	@XStreamAlias("CodigoAutorizacao")
-	private String codigoAutorizacao;
+	private String authorizationCode;
 
-	public String getTotalPago() {
-		return totalPago;
+	public String getTotalPaid() {
+		return totalPaid;
 	}
 
-	public void setTotalPago(final String totalPago) {
-		this.totalPago = totalPago;
-	}
-
-	public String getTaxaMoIP() {
-		return taxaMoIP;
-	}
-
-	public void setTaxaMoIP(final String taxaMoIP) {
-		this.taxaMoIP = taxaMoIP;
+	public String getMoipTax() {
+		return moipTax;
 	}
 
 	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(final String status) {
-		this.status = status;
+	public String getMoipCode() {
+		return moipCode;
 	}
 
-	public String getCodigoMoIP() {
-		return codigoMoIP;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setCodigoMoIP(final String codigoMoIP) {
-		this.codigoMoIP = codigoMoIP;
+	public String getReturnCode() {
+		return returnCode;
 	}
 
-	public String getMensagem() {
-		return mensagem;
-	}
-
-	public void setMensagem(final String mensagem) {
-		this.mensagem = mensagem;
-	}
-
-	public String getCodigoRetorno() {
-		return codigoRetorno;
-	}
-
-	public void setCodigoRetorno(final String codigoRetorno) {
-		this.codigoRetorno = codigoRetorno;
-	}
-
-	public String getCodigoAutorizacao() {
-		return codigoAutorizacao;
-	}
-
-	public void setCodigoAutorizacao(final String codigoAutorizacao) {
-		this.codigoAutorizacao = codigoAutorizacao;
+	public String getAuthorizationCode() {
+		return authorizationCode;
 	}
 
 	@Override
 	public String toString() {
-		return "RespostaPagamentoDireto [totalPago=" + totalPago
-				+ ", taxaMoIP=" + taxaMoIP + ", status=" + status
-				+ ", codigoMoIP=" + codigoMoIP + ", mensagem=" + mensagem
-				+ ", codigoRetorno=" + codigoRetorno + "]";
+		return "RespostaPagamentoDireto [totalPago=" + totalPaid
+				+ ", taxaMoIP=" + moipTax + ", status=" + status
+				+ ", codigoMoIP=" + moipCode + ", mensagem=" + message
+				+ ", codigoRetorno=" + returnCode + "]";
 	}
 
 }

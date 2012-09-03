@@ -5,10 +5,19 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 @XStreamAlias("Boleto")
 public class Billet {
 
-	private String DiasExpiracao;
-	private String Instrucao1;
-	private String Instrucao2;
-	private String Instrucao3;
+	@XStreamAlias("DiasExpiracao")
+	private String daysToExpire;
+	
+	@XStreamAlias("Instrucao1")
+	private String instruction1;
+	
+	@XStreamAlias("Instrucao2")
+	private String instruction2;
+	
+	@XStreamAlias("Instrucao3")
+	private String instruction3;
+	
+	@XStreamAlias("URLLogo")
 	private String URLLogo;
 
 	public static Billet billet() {
@@ -16,22 +25,22 @@ public class Billet {
 	}
 
 	public Billet withDaysToExpire(final String diasExpiracao) {
-		this.DiasExpiracao = diasExpiracao;
+		this.daysToExpire = diasExpiracao;
 		return this;
 	}
 
 	public Billet withInstruction1(final String instrucao1) {
-		this.Instrucao1 = instrucao1;
+		this.instruction1 = instrucao1;
 		return this;
 	}
 
 	public Billet withInstruction2(final String instrucao2) {
-		this.Instrucao2 = instrucao2;
+		this.instruction2 = instrucao2;
 		return this;
 	}
 
 	public Billet withInstruction3(final String instrucao3) {
-		this.Instrucao3 = instrucao3;
+		this.instruction3 = instrucao3;
 		return this;
 	}
 
@@ -40,44 +49,24 @@ public class Billet {
 		return this;
 	}
 
-	public String getDiasExpiracao() {
-		return DiasExpiracao;
+	public String getDaysToExpire() {
+		return daysToExpire;
 	}
 
-	public void setDiasExpiracao(final String diasExpiracao) {
-		DiasExpiracao = diasExpiracao;
+	public String getInstruction1() {
+		return instruction1;
 	}
 
-	public String getInstrucao1() {
-		return Instrucao1;
+	public String getInstruction2() {
+		return instruction2;
 	}
 
-	public void setInstrucao1(final String instrucao1) {
-		Instrucao1 = instrucao1;
-	}
-
-	public String getInstrucao2() {
-		return Instrucao2;
-	}
-
-	public void setInstrucao2(final String instrucao2) {
-		Instrucao2 = instrucao2;
-	}
-
-	public String getInstrucao3() {
-		return Instrucao3;
-	}
-
-	public void setInstrucao3(final String instrucao3) {
-		Instrucao3 = instrucao3;
+	public String getInstruction3() {
+		return instruction3;
 	}
 
 	public String getURLLogo() {
 		return URLLogo;
-	}
-
-	public void setURLLogo(final String uRLLogo) {
-		URLLogo = uRLLogo;
 	}
 
 }

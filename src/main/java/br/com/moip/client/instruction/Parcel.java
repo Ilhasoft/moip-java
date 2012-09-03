@@ -6,46 +6,67 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class Parcel {
 
 	@XStreamAlias("MinimoParcelas")
-	private String minimoParcelas;
+	private String minimumParcels;
 	
 	@XStreamAlias("MaximoParcelas")
-	private String maximoParcelas;
+	private String maximumParcels;
 
 	@XStreamAlias("Recebimento")
-	private String recebimento;
+	private String receptionType;
 	
 	@XStreamAlias("Juros")
-	private String juros;
+	private String interest;
 	
 	@XStreamAlias("Repassar")
-	private String repassar;
+	private String transfer;
 
 	public static Parcel parcel() {
 		return new Parcel();
 	}
 
 	public Parcel withMinimumParcels(final String minimoParcelas) {
-		this.minimoParcelas = minimoParcelas;
+		this.minimumParcels = minimoParcelas;
 		return this;
 	}
 	
 	public Parcel withMaximumParcels(final String maximoParcelas) {
-		this.maximoParcelas = maximoParcelas;
+		this.maximumParcels = maximoParcelas;
 		return this;
 	}
 
 	public Parcel withReceptionType(final String recebimento) {
-		this.recebimento = recebimento;
+		this.receptionType = recebimento;
 		return this;
 	}
 
 	public Parcel withInterest(final String juros) {
-		this.juros = juros;
+		this.interest = juros;
 		return this;
 	}
 
 	public Parcel withTransfer(final String repassar) {
-		this.repassar = repassar;
+		this.transfer = repassar;
 		return this;
 	}
+
+	public String getMinimumParcels() {
+		return minimumParcels;
+	}
+
+	public String getMaximumParcels() {
+		return maximumParcels;
+	}
+
+	public String getReceptionType() {
+		return receptionType;
+	}
+
+	public String getInterest() {
+		return interest;
+	}
+
+	public String getTransfer() {
+		return transfer;
+	}
+	
 }

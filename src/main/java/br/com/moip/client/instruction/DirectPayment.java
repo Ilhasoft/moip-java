@@ -6,71 +6,55 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class DirectPayment {
 
 	@XStreamAlias("Forma")
-	private String forma;
+	private String paymentForm;
 
 	@XStreamAlias("Instituicao")
-	private String instituicao;
+	private String institution;
 
 	@XStreamAlias("CartaoCredito")
-	private CreditCard cartaoCredito;
+	private CreditCard creditCard;
 
 	@XStreamAlias("Parcelamento")
-	private Parcel parcelamento;
+	private Parcel parcel;
 
 	public static DirectPayment directPayment() {
 		return new DirectPayment();
 	}
 
 	public DirectPayment withPaymentForm(final String forma) {
-		this.forma = forma;
+		this.paymentForm = forma;
 		return this;
 	}
 
 	public DirectPayment withInstitution(final String instituicao) {
-		this.instituicao = instituicao;
+		this.institution = instituicao;
 		return this;
 	}
 
 	public DirectPayment withCreditCard(final CreditCard cartaoCredito) {
-		this.cartaoCredito = cartaoCredito;
+		this.creditCard = cartaoCredito;
 		return this;
 	}
 
 	public DirectPayment withParcel(final Parcel parcelamento) {
-		this.parcelamento = parcelamento;
+		this.parcel = parcelamento;
 		return this;
 	}
 
-	public String getForma() {
-		return forma;
+	public String getPaymentForm() {
+		return paymentForm;
 	}
 
-	public void setForma(final String forma) {
-		this.forma = forma;
+	public String getInstitution() {
+		return institution;
 	}
 
-	public String getInstituicao() {
-		return instituicao;
+	public CreditCard getCreditCard() {
+		return creditCard;
 	}
 
-	public void setInstituicao(final String instituicao) {
-		this.instituicao = instituicao;
+	public Parcel getParcel() {
+		return parcel;
 	}
-
-	public CreditCard getCartaoCredito() {
-		return cartaoCredito;
-	}
-
-	public void setCartaoCredito(final CreditCard cartaoCredito) {
-		this.cartaoCredito = cartaoCredito;
-	}
-
-	public Parcel getParcelamento() {
-		return parcelamento;
-	}
-
-	public void setParcelamento(final Parcel parcelamento) {
-		this.parcelamento = parcelamento;
-	}
-
+	
 }

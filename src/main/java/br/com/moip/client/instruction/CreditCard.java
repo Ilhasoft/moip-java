@@ -6,78 +6,62 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class CreditCard {
 
 	@XStreamAlias("Numero")
-	private String numero;
+	private String number;
 
 	@XStreamAlias("Expiracao")
-	private String expiracao;
+	private String expiration;
 
 	@XStreamAlias("CodigoSeguranca")
-	private String codigoSeguranca;
+	private String PIN;
 
 	@XStreamAlias("Portador")
-	private Holder portador;
+	private Holder holder;
 
 	public static CreditCard creditCard() {
 		return new CreditCard();
 	}
 
 	public CreditCard withNumber(final String numero) {
-		this.numero = numero;
+		this.number = numero;
 		return this;
 	}
 
 	public CreditCard withExpiration(final String expiracao) {
-		this.expiracao = expiracao;
+		this.expiration = expiracao;
 		return this;
 	}
 
 	public CreditCard withHolder(final Holder portador) {
-		this.portador = portador;
+		this.holder = portador;
 		return this;
 	}
 
 	public CreditCard withPIN(final String codigoSeguranca) {
-		this.codigoSeguranca = codigoSeguranca;
+		this.PIN = codigoSeguranca;
 		return this;
 	}
 
 	public Holder withHolder() {
-		if (this.portador == null) {
-			this.portador = new Holder();
+		if (this.holder == null) {
+			this.holder = new Holder();
 		}
-		return this.portador;
+		return this.holder;
 	}
 
-	public String getNumero() {
-		return numero;
+	public String getNumber() {
+		return number;
 	}
 
-	public void setNumero(final String numero) {
-		this.numero = numero;
+	public String getExpiration() {
+		return expiration;
 	}
 
-	public String getExpiracao() {
-		return expiracao;
+	public String getPIN() {
+		return PIN;
 	}
 
-	public void setExpiracao(final String expiracao) {
-		this.expiracao = expiracao;
+	public Holder getHolder() {
+		return holder;
 	}
-
-	public String getCodigoSeguranca() {
-		return codigoSeguranca;
-	}
-
-	public void setCodigoSeguranca(final String codigoSeguranca) {
-		this.codigoSeguranca = codigoSeguranca;
-	}
-
-	public Holder getPortador() {
-		return portador;
-	}
-
-	public void setPortador(final Holder portador) {
-		this.portador = portador;
-	}
-
+	
 }

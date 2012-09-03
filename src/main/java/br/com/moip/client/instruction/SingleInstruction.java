@@ -16,40 +16,40 @@ public class SingleInstruction {
 	private String validationType;
 	
 	@XStreamAlias("Razao")
-	private String razao;
+	private String reason;
 
 	@XStreamAlias("IdProprio")
-	private String IdProprio;
+	private String uniqueId;
 
 	@XStreamAlias("Pagador")
-	private Payer pagador;
+	private Payer payer;
 
 	@XStreamAlias("PagamentoDireto")
-	private DirectPayment pagamentoDireto;
+	private DirectPayment directPayment;
 
 	@XStreamAlias("Boleto")
-	private Billet boleto;
+	private Billet billet;
 
 	@XStreamAlias("Valores")
-	private Values valores;
+	private Values values;
 
 	@XStreamAlias("URLNotificacao")
-	private String urlNotificacao;
+	private String notificationURL;
 
 	@XStreamAlias("URLRetorno")
-	private String urlRetorno;
+	private String returnURL;
 
 	@XStreamAlias("Mensagens")
-	private Messages mensagens;
+	private Messages messages;
 
 	@XStreamAlias("Recebedor")
-	private Receiver recebedor;
+	private Receiver receiver;
 
 	@XStreamAlias("Comissoes")
-	private List<Comissioning> comissoes;
+	private List<Comissioning> comissions;
 	
 	@XStreamAlias("Parcelamentos")
-	private List<Parcel> parcelamentos;
+	private List<Parcel> parcels;
 
 	public static SingleInstruction singleInstruction() {
 		return new SingleInstruction();
@@ -61,197 +61,161 @@ public class SingleInstruction {
 	}
 	
 	public SingleInstruction withReason(final String razao) {
-		this.razao = razao;
+		this.reason = razao;
 		return this;
 	}
 
 	public SingleInstruction withUniqueId(final String id) {
-		this.IdProprio = id;
+		this.uniqueId = id;
 		return this;
 	}
 
 	public SingleInstruction with(final DirectPayment pagamentoDireto) {
-		this.pagamentoDireto = pagamentoDireto;
+		this.directPayment = pagamentoDireto;
 		return this;
 	}
 
 	public SingleInstruction with(final Payer pagador) {
-		this.pagador = pagador;
+		this.payer = pagador;
 		return this;
 	}
 
 	public SingleInstruction with(final Billet boleto) {
-		this.boleto = boleto;
+		this.billet = boleto;
 		return this;
 	}
 
 	public SingleInstruction with(final Values valores) {
-		this.valores = valores;
+		this.values = valores;
 		return this;
 	}
 
 	public SingleInstruction with(final Messages mensagens) {
-		this.mensagens = mensagens;
+		this.messages = mensagens;
 		return this;
 	}
 
 	public SingleInstruction with(final Receiver recebedor) {
-		this.recebedor = recebedor;
+		this.receiver = recebedor;
 		return this;
 	}
 
 	public SingleInstruction with(Comissioning comissionamento) {
-		if (this.comissoes == null)
-			this.comissoes = new ArrayList<Comissioning>();
-		this.comissoes.add(comissionamento);
+		if (this.comissions == null)
+			this.comissions = new ArrayList<Comissioning>();
+		this.comissions.add(comissionamento);
 		return this;
 	}
 	
 	public SingleInstruction with(Parcel parcelamento) {
-		if (this.parcelamentos == null)
-			this.parcelamentos = new ArrayList<Parcel>();
-		this.parcelamentos.add(parcelamento);
+		if (this.parcels == null)
+			this.parcels = new ArrayList<Parcel>();
+		this.parcels.add(parcelamento);
 		return this;
 	}
 	
 	public Payer payer() {
-		if (pagador == null) {
-			pagador = new Payer();
+		if (payer == null) {
+			payer = new Payer();
 		}
-		return pagador;
+		return payer;
 	}
 
 	public DirectPayment directPayment() {
-		if (pagamentoDireto == null) {
-			pagamentoDireto = new DirectPayment();
+		if (directPayment == null) {
+			directPayment = new DirectPayment();
 		}
-		return pagamentoDireto;
+		return directPayment;
 	}
 
 	public Billet billet() {
-		if (boleto == null) {
-			boleto = new Billet();
+		if (billet == null) {
+			billet = new Billet();
 		}
-		return boleto;
+		return billet;
 	}
 
 	public Values values() {
-		if (valores == null) {
-			valores = new Values();
+		if (values == null) {
+			values = new Values();
 		}
-		return valores;
+		return values;
 	}
 
 	public Receiver receiver() {
-		if (recebedor == null) {
-			recebedor = new Receiver();
+		if (receiver == null) {
+			receiver = new Receiver();
 		}
-		return recebedor;
+		return receiver;
 	}
 
 	public SingleInstruction withNotificationURL(final String urlNotificacao) {
-		this.urlNotificacao = urlNotificacao;
+		this.notificationURL = urlNotificacao;
 		return this;
 	}
 
 	public SingleInstruction withReturnURL(final String urlRetorno) {
-		this.urlRetorno = urlRetorno;
+		this.returnURL = urlRetorno;
 		return this;
 	}
 
-	public String getRazao() {
-		return razao;
+	public String getValidationType() {
+		return validationType;
 	}
 
-	public String getIdProprio() {
-		return IdProprio;
+	public String getReason() {
+		return reason;
 	}
 
-	public Payer getPagador() {
-		return pagador;
+	public String getUniqueId() {
+		return uniqueId;
 	}
 
-	public void setRazao(final String razao) {
-		this.razao = razao;
+	public Payer getPayer() {
+		return payer;
 	}
 
-	public void setIdProprio(final String idProprio) {
-		IdProprio = idProprio;
+	public DirectPayment getDirectPayment() {
+		return directPayment;
 	}
 
-	public void setPagador(final Payer pagador) {
-		this.pagador = pagador;
+	public Billet getBillet() {
+		return billet;
 	}
 
-	public DirectPayment getPagamentoDireto() {
-		return pagamentoDireto;
+	public Values getValues() {
+		return values;
 	}
 
-	public void setPagamentoDireto(final DirectPayment pagamentoDireto) {
-		this.pagamentoDireto = pagamentoDireto;
+	public String getNotificationURL() {
+		return notificationURL;
 	}
 
-	public Billet getBoleto() {
-		return boleto;
+	public String getReturnURL() {
+		return returnURL;
 	}
 
-	public void setBoleto(final Billet boleto) {
-		this.boleto = boleto;
+	public Messages getMessages() {
+		return messages;
 	}
 
-	public Values getValores() {
-		return valores;
+	public Receiver getReceiver() {
+		return receiver;
 	}
 
-	public void setValores(final Values valores) {
-		this.valores = valores;
+	public List<Comissioning> getComissions() {
+		return comissions;
 	}
 
-	public String getUrlNotificacao() {
-		return urlNotificacao;
-	}
-
-	public void setUrlNotificacao(final String urlNotificacao) {
-		this.urlNotificacao = urlNotificacao;
-	}
-
-	public String getUrlRetorno() {
-		return urlRetorno;
-	}
-
-	public void setUrlRetorno(final String urlRetorno) {
-		this.urlRetorno = urlRetorno;
-	}
-
-	public Messages getMensagens() {
-		return mensagens;
-	}
-
-	public void setMensagens(final Messages mensagens) {
-		this.mensagens = mensagens;
-	}
-
-	public Receiver getRecebedor() {
-		return recebedor;
-	}
-
-	public void setRecebedor(final Receiver recebedor) {
-		this.recebedor = recebedor;
-	}
-
-	public List<Comissioning> getComissoes() {
-		return comissoes;
-	}
-	
-	public void setComissoes(List<Comissioning> comissoes) {
-		this.comissoes = comissoes;
+	public List<Parcel> getParcels() {
+		return parcels;
 	}
 
 	public void validate() throws InstructionValidationException {
 		String fields = "";
-		if (this.getIdProprio() == null) fields += "uniqueID,";
-		if (this.getRazao() == null) fields += "reason,";
-		if (this.getValores() == null) fields += "value,";
+		if (this.getUniqueId() == null) fields += "uniqueID,";
+		if (this.getReason() == null) fields += "reason,";
+		if (this.getValues() == null) fields += "value,";
 		
 		if ("Transparente".equals(this.validationType))
 			fields += this.validateTransparent();
@@ -263,21 +227,21 @@ public class SingleInstruction {
 
 	private String validateTransparent() {
 		String fields = "";
-		if (this.getPagador() == null) fields += "payer,";
+		if (this.getPayer() == null) fields += "payer,";
 		else {
-			if (this.getPagador().getNome() == null) fields += "name,";
-			if (this.getPagador().getEmail() == null) fields += "email,";
-			if (this.getPagador().getPayerID() == null) fields += "payerID,";
-			if (this.getPagador().getEnderecoCobranca() == null) fields += "billingAddress,";
+			if (this.getPayer().getName() == null) fields += "name,";
+			if (this.getPayer().getEmail() == null) fields += "email,";
+			if (this.getPayer().getPayerID() == null) fields += "payerID,";
+			if (this.getPayer().getBillingAddress() == null) fields += "billingAddress,";
 			else {
-				if (this.getPagador().getEnderecoCobranca().getLogradouro() == null) fields += "address,";
-				if (this.getPagador().getEnderecoCobranca().getNumero() == null) fields += "numero,";
-				if (this.getPagador().getEnderecoCobranca().getBairro() == null) fields += "neighborhood,";
-				if (this.getPagador().getEnderecoCobranca().getCidade() == null) fields += "city,";
-				if (this.getPagador().getEnderecoCobranca().getEstado() == null) fields += "state,";
-				if (this.getPagador().getEnderecoCobranca().getPais() == null) fields += "country,";
-				if (this.getPagador().getEnderecoCobranca().getCep() == null) fields += "cep,";
-				if (this.getPagador().getEnderecoCobranca().getTelefoneFixo() == null) fields += "phone,";
+				if (this.getPayer().getBillingAddress().getAddress() == null) fields += "address,";
+				if (this.getPayer().getBillingAddress().getNumber() == null) fields += "numero,";
+				if (this.getPayer().getBillingAddress().getNeighborhood() == null) fields += "neighborhood,";
+				if (this.getPayer().getBillingAddress().getCity() == null) fields += "city,";
+				if (this.getPayer().getBillingAddress().getState() == null) fields += "state,";
+				if (this.getPayer().getBillingAddress().getCountry() == null) fields += "country,";
+				if (this.getPayer().getBillingAddress().getZipCode() == null) fields += "cep,";
+				if (this.getPayer().getBillingAddress().getPhone() == null) fields += "phone,";
 			}
 		}
 		

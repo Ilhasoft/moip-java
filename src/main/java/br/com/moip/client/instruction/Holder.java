@@ -7,88 +7,68 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 public class Holder {
 
 	@XStreamAlias("Nome")
-	private String nome;
+	private String name;
 
 	@XStreamAlias("Identidade")
-	private String identidade;
+	private String identity;
 
 	@XStreamAsAttribute
 	@XStreamAlias("Tipo")
-	private String tipoDocumento = "CPF";
+	private String documentType = "CPF";
 
 	@XStreamAlias("Telefone")
-	private String telefone;
+	private String phone;
 
 	@XStreamAlias("DataNascimento")
-	private String dataNascimento;
+	private String birthDate;
 
 	public static Holder holder() {
 		return new Holder();
 	}
 
 	public Holder withName(final String nome) {
-		this.nome = nome;
+		this.name = nome;
 		return this;
 	}
 
 	public Holder withIdentity(final String identidade) {
-		this.identidade = identidade;
+		this.identity = identidade;
 		return this;
 	}
 
 	public Holder withDocumentType(final String tipoDocumento) {
-		this.tipoDocumento = tipoDocumento;
+		this.documentType = tipoDocumento;
 		return this;
 	}
 
 	public Holder withPhone(final String telefone) {
-		this.telefone = telefone;
+		this.phone = telefone;
 		return this;
 	}
 
 	public Holder withBirthDate(final String dataNascimento) {
-		this.dataNascimento = dataNascimento;
+		this.birthDate = dataNascimento;
 		return this;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(final String nome) {
-		this.nome = nome;
+	public String getIdentity() {
+		return identity;
 	}
 
-	public String getIdentidade() {
-		return identidade;
+	public String getDocumentType() {
+		return documentType;
 	}
 
-	public void setIdentidade(final String identidade) {
-		this.identidade = identidade;
+	public String getPhone() {
+		return phone;
 	}
 
-	public String getTipoDocumento() {
-		return tipoDocumento;
-	}
-
-	public void setTipoDocumento(final String tipoDocumento) {
-		this.tipoDocumento = tipoDocumento;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(final String telefone) {
-		this.telefone = telefone;
-	}
-
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(final String dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public String getBirthDate() {
+		return birthDate;
 	}
 
 }

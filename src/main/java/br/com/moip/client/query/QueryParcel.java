@@ -1,5 +1,7 @@
 package br.com.moip.client.query;
 
+import br.com.moip.client.exception.InstructionValidationException;
+
 public class QueryParcel {
 
 	private String login;
@@ -36,4 +38,14 @@ public class QueryParcel {
 		return value;
 	}
 	
+	public void validate() throws InstructionValidationException {
+		String fields = "";
+		if (this.getLogin() == null) fields += "Moip login,";
+		if (this.getMaxParcel() == null) fields += "max parcels,";
+		if (this.getInterest() == null) fields += "interest,";
+		if (this.getValue() == null) fields += "value,";
+		
+		if (!"".equals(fields))
+			throw new InstructionValidationException("You must inform: " + fields.substring(0, fields.length()-1));
+	}
 }

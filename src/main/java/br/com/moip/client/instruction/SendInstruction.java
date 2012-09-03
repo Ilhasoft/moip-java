@@ -9,26 +9,26 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class SendInstruction {
 
 	@XStreamAlias("InstrucaoUnica")
-	private SingleInstruction instrucaoUnica;
+	private SingleInstruction singleInstruction;
 
 	public SingleInstruction instrucaoUnica() {
-		if (this.instrucaoUnica == null) {
-			this.instrucaoUnica = new SingleInstruction();
+		if (this.singleInstruction == null) {
+			this.singleInstruction = new SingleInstruction();
 		}
-		return this.instrucaoUnica;
+		return this.singleInstruction;
 	}
 
 	public SendInstruction withSingleInstruction(final SingleInstruction instrucaoUnica) {
-		this.instrucaoUnica = instrucaoUnica;
+		this.singleInstruction = instrucaoUnica;
 		return this;
 	}
 	
-	public SingleInstruction getInstrucaoUnica() {
-		return instrucaoUnica;
+	public SingleInstruction getSingleInstruction() {
+		return singleInstruction;
 	}
 
 	public void validate() throws InstructionValidationException {
-		this.instrucaoUnica.validate();
+		this.singleInstruction.validate();
 	}
 	
 	public String getXML() {
