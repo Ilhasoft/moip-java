@@ -51,10 +51,6 @@ public class SingleInstruction {
 	@XStreamAlias("Parcelamentos")
 	private List<Parcel> parcels;
 
-	public static SingleInstruction singleInstruction() {
-		return new SingleInstruction();
-	}
-
 	public SingleInstruction withTransparentValidation() {
 		this.validationType = "Transparente";
 		return this;

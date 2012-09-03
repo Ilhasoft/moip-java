@@ -22,10 +22,6 @@ public class Holder {
 	@XStreamAlias("DataNascimento")
 	private String birthDate;
 
-	public static Holder holder() {
-		return new Holder();
-	}
-
 	public Holder withName(final String nome) {
 		this.name = nome;
 		return this;

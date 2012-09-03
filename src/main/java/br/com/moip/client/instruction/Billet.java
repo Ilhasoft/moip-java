@@ -20,10 +20,6 @@ public class Billet {
 	@XStreamAlias("URLLogo")
 	private String URLLogo;
 
-	public static Billet billet() {
-		return new Billet();
-	}
-
 	public Billet withDaysToExpire(final String diasExpiracao) {
 		this.daysToExpire = diasExpiracao;
 		return this;

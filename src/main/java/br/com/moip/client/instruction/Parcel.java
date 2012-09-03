@@ -20,10 +20,6 @@ public class Parcel {
 	@XStreamAlias("Repassar")
 	private String transfer;
 
-	public static Parcel parcel() {
-		return new Parcel();
-	}
-
 	public Parcel withMinimumParcels(final String minimoParcelas) {
 		this.minimumParcels = minimoParcelas;
 		return this;

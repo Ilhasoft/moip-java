@@ -24,4 +24,7 @@ public class SendSingleInstructionResponse {
 		return this.getXML();
 	}
 
+	public boolean isSuccessful() {
+		return (this.response != null && this.response.isSuccessful());
+	}
 }

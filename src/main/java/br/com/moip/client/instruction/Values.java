@@ -12,10 +12,6 @@ public class Values {
 	@XStreamAsAttribute
 	private String currency = "BRL";
 
-	public static Values values() {
-		return new Values();
-	}
-
 	public Values withValue(final String valor) {
 		this.value = valor;
 		return this;

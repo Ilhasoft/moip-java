@@ -18,4 +18,8 @@ public class CheckParcelValuesResponse {
 	public ParcelValuesResponse getResponse() {
 		return response;
 	}
+	
+	public boolean isSuccessful() {
+		return (this.response != null && this.response.isSuccessful());
+	}
 }

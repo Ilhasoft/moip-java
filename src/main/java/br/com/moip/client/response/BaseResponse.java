@@ -21,4 +21,7 @@ public class BaseResponse {
 	    return status;
 	}
 
+	public boolean isSuccessful() {
+		return "SUCESSO".equalsIgnoreCase(this.status);
+	}
 }

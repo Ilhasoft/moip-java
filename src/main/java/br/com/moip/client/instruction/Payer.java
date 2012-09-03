@@ -29,10 +29,6 @@ public class Payer {
     @XStreamAlias("EnderecoEntrega")
     private Address deliveryAddress;
 
-    public static Payer payer() {
-        return new Payer();
-    }
-
     public Payer withName(final String nome) {
         this.name = nome;
         return this;

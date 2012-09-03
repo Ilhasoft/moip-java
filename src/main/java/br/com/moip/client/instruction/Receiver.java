@@ -11,10 +11,6 @@ public class Receiver {
 	@XStreamAlias("Apelido")
 	private String nickname;
 
-	public static Receiver receiver() {
-		return new Receiver();
-	}
-
 	public Receiver withMoipLogin(final String loginMoIP) {
 		this.loginMoIP = loginMoIP;
 		return this;

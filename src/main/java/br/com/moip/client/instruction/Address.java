@@ -32,10 +32,6 @@ public class Address {
     @XStreamAlias("TelefoneFixo")
     private String phone;
 
-    public static Address billingAdress() {
-        return new Address();
-    }
-
     public Address withAddress(final String logradouro) {
         this.address = logradouro;
         return this;

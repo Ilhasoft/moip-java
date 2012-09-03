@@ -17,10 +17,6 @@ public class DirectPayment {
 	@XStreamAlias("Parcelamento")
 	private Parcel parcel;
 
-	public static DirectPayment directPayment() {
-		return new DirectPayment();
-	}
-
 	public DirectPayment withPaymentForm(final String forma) {
 		this.paymentForm = forma;
 		return this;

@@ -17,10 +17,6 @@ public class Comissioning {
 	@XStreamAlias("Razao")
 	private String razao;
 
-	public static Comissioning comissioning() {
-		return new Comissioning();
-	}
-
 	public Comissioning withReason(final String razao) {
 		this.razao = razao;
 		return this;

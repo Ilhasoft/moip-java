@@ -52,7 +52,6 @@ public abstract class SendToMoip {
 			post.setRequestEntity(requestEntity);
 
 			status = client.executeMethod(post);
-			System.out.println(status);
 
 			XStream xstream = new XStream();
 			xstream.processAnnotations(SendSingleInstructionResponse.class);
@@ -82,7 +81,6 @@ public abstract class SendToMoip {
 		int status = 200;
 		try {
 			status = client.executeMethod(get);
-			System.out.println(status);
 			
 			XStream xstream = new XStream();
 			xstream.processAnnotations(CheckParcelValuesResponse.class);

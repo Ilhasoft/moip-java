@@ -17,10 +17,6 @@ public class CreditCard {
 	@XStreamAlias("Portador")
 	private Holder holder;
 
-	public static CreditCard creditCard() {
-		return new CreditCard();
-	}
-
 	public CreditCard withNumber(final String numero) {
 		this.number = numero;
 		return this;

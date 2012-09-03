@@ -8,10 +8,6 @@ public class Comissioned {
 	@XStreamAlias("LoginMoIP")
 	private String loginMoIP;
 
-	public static Comissioned comissioned() {
-		return new Comissioned();
-	}
-
 	public Comissioned comissioned(final String loginMoip) {
 		this.loginMoIP = loginMoip;
 		return this;
