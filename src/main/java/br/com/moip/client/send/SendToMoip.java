@@ -77,7 +77,6 @@ public abstract class SendToMoip {
 		try {
 			int status = client.executeMethod(get);
 			System.out.println(status);
-			System.out.println(get.getResponseBodyAsString());
 			
 			XStream xstream = new XStream();
 			xstream.processAnnotations(CheckParcelValuesResponse.class);

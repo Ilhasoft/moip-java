@@ -6,10 +6,15 @@ import java.util.List;
 import br.com.moip.client.exception.InstructionValidationException;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
 @XStreamAlias("InstrucaoUnica")
 public class SingleInstruction {
 
+	@XStreamAsAttribute
+	@XStreamAlias("TipoValidacao")
+	private String validationType;
+	
 	@XStreamAlias("Razao")
 	private String razao;
 
@@ -50,6 +55,11 @@ public class SingleInstruction {
 		return new SingleInstruction();
 	}
 
+	public SingleInstruction withTransparentValidation() {
+		this.validationType = "Transparente";
+		return this;
+	}
+	
 	public SingleInstruction withReason(final String razao) {
 		this.razao = razao;
 		return this;
@@ -243,7 +253,34 @@ public class SingleInstruction {
 		if (this.getRazao() == null) fields += "reason,";
 		if (this.getValores() == null) fields += "value,";
 		
+		if ("Transparente".equals(this.validationType))
+			fields += this.validateTransparent();
+		
 		if (!"".equals(fields))
 			throw new InstructionValidationException("You must inform: " + fields.substring(0, fields.length()-1));
+		
+	}
+
+	private String validateTransparent() {
+		String fields = "";
+		if (this.getPagador() == null) fields += "payer,";
+		else {
+			if (this.getPagador().getNome() == null) fields += "name,";
+			if (this.getPagador().getEmail() == null) fields += "email,";
+			if (this.getPagador().getPayerID() == null) fields += "payerID,";
+			if (this.getPagador().getEnderecoCobranca() == null) fields += "billingAddress,";
+			else {
+				if (this.getPagador().getEnderecoCobranca().getLogradouro() == null) fields += "address,";
+				if (this.getPagador().getEnderecoCobranca().getNumero() == null) fields += "numero,";
+				if (this.getPagador().getEnderecoCobranca().getBairro() == null) fields += "neighborhood,";
+				if (this.getPagador().getEnderecoCobranca().getCidade() == null) fields += "city,";
+				if (this.getPagador().getEnderecoCobranca().getEstado() == null) fields += "state,";
+				if (this.getPagador().getEnderecoCobranca().getPais() == null) fields += "country,";
+				if (this.getPagador().getEnderecoCobranca().getCep() == null) fields += "cep,";
+				if (this.getPagador().getEnderecoCobranca().getTelefoneFixo() == null) fields += "phone,";
+			}
+		}
+		
+		return fields;
 	}
 }

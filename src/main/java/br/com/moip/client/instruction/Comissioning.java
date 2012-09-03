@@ -17,7 +17,7 @@ public class Comissioning {
 	@XStreamAlias("Razao")
 	private String razao;
 
-	public static Comissioning commissioning() {
+	public static Comissioning comissioning() {
 		return new Comissioning();
 	}
 
@@ -36,7 +36,7 @@ public class Comissioning {
 		return this;
 	}
 
-	public Comissioning withCommissioned(final Comissioned comissionado) {
+	public Comissioning withComissioned(final Comissioned comissionado) {
 		this.comissionado = comissionado;
 		return this;
 	}

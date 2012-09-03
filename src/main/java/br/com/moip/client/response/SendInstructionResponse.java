@@ -12,7 +12,7 @@ public class SendInstructionResponse extends BaseResponse {
     private String token;
 
     @XStreamImplicit(itemFieldName="Erro")
-    private List<String> erro;
+    private List<Error> erros;
 
     @XStreamAlias("RespostaPagamentoDireto")
     private DirectPaymentResponse respostaPagamentoDireto;
@@ -25,13 +25,13 @@ public class SendInstructionResponse extends BaseResponse {
         return respostaPagamentoDireto;
     }
 
-    public List<String> getErro() {
-        return erro;
+    public List<Error> getErro() {
+        return erros;
     }
 
     @Override
     public String toString() {
-        return "Resposta [id=" + id + ", status=" + status + ", token=" + token + ", erro=" + erro + "]";
+        return "Resposta [id=" + id + ", status=" + status + ", token=" + token + ", erro=" + erros + "]";
     }
 
 }

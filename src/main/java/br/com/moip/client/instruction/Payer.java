@@ -8,12 +8,12 @@ public class Payer {
     @XStreamAlias("Nome")
     private String nome;
 
-    @XStreamAlias("LoginMoIP")
-    private String loginMoIP;
-
     @XStreamAlias("Email")
     private String email;
 
+    @XStreamAlias("IdPagador")
+    private String payerID;
+    
     @XStreamAlias("TelefoneCelular")
     private String telefoneCelular;
 
@@ -63,20 +63,17 @@ public class Payer {
         return this;
     }
 
+    public Payer withPayerID(final String payerID) {
+        this.payerID = payerID;
+        return this;
+    }
+    
     public String getNome() {
         return nome;
     }
 
     public void setNome(final String nome) {
         this.nome = nome;
-    }
-
-    public String getLoginMoIP() {
-        return loginMoIP;
-    }
-
-    public void setLoginMoIP(final String loginMoIP) {
-        this.loginMoIP = loginMoIP;
     }
 
     public String getEmail() {
@@ -127,4 +124,7 @@ public class Payer {
         this.enderecoEntrega = enderecoEntrega;
     }
 
+    public String getPayerID() {
+		return payerID;
+	}
 }

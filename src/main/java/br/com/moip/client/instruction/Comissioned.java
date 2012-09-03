@@ -8,7 +8,7 @@ public class Comissioned {
 	@XStreamAlias("LoginMoIP")
 	private String loginMoIP;
 
-	public static Comissioned commissioned() {
+	public static Comissioned comissioned() {
 		return new Comissioned();
 	}
 

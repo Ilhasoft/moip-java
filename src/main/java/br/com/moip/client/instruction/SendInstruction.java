@@ -22,13 +22,9 @@ public class SendInstruction {
 		this.instrucaoUnica = instrucaoUnica;
 		return this;
 	}
-
+	
 	public SingleInstruction getInstrucaoUnica() {
 		return instrucaoUnica;
-	}
-
-	public void setInstrucaoUnica(final SingleInstruction instrucaoUnica) {
-		this.instrucaoUnica = instrucaoUnica;
 	}
 
 	public void validate() throws InstructionValidationException {
