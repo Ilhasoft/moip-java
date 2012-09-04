@@ -6,6 +6,7 @@ import com.thoughtworks.xstream.converters.extended.ToAttributedValueConverter;
 
 /**
  * Classe que representa uma opção de parcelamento.
+ * <br>XML: Elemento &lt;ValorDaParcela&gt;
  *
  */
 @XStreamAlias("ValorDaParcela")
@@ -25,6 +26,7 @@ public class ParcelValue {
 
 	/**
 	 * Devolve o valor total pago pelo cliente através desta opção de parcelamento.
+	 * <br>XML: Elemento &lt;Total&gt;
 	 * @return
 	 */
 	public String getTotal() {
@@ -33,6 +35,7 @@ public class ParcelValue {
 
 	/**
 	 * Devolve os juros pagos através desta opção de parcelamento.
+	 * <br>XML: Elemento &lt;Juros&gt;
 	 * @return
 	 */
 	public String getInterest() {
@@ -41,6 +44,7 @@ public class ParcelValue {
 
 	/**
 	 * Devolve o valor por parcela pago através desta opção de parcelamento.
+	 * <br>XML: Elemento &lt;Valor&gt;
 	 * @return
 	 */
 	public String getValue() {
@@ -49,6 +53,7 @@ public class ParcelValue {
 
 	/**
 	 * Devolve o número de parcelas pagas atraveś desta opção de parcelamento.
+	 * <br>XML: número dentro do elemento
 	 * @return
 	 */
 	public String getParcel() {

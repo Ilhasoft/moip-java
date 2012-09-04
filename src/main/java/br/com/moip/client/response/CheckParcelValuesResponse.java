@@ -5,6 +5,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Classe que modela a resposta de Consultar Parcelamento.
+ * <br>XML: Elemento &lt;ns1:ChecarValoresParcelamentoResponse&gt;
  *
  */
 @XStreamAlias("ns1:ChecarValoresParcelamentoResponse")
@@ -25,6 +26,7 @@ public class CheckParcelValuesResponse {
 	
 	/**
 	 * Devolve a resposta do cálculo de parcelamento.
+	 * <br>XML: Elemento &lt;Resposta&gt;
 	 * @return
 	 */
 	public ParcelValuesResponse getResponse() {

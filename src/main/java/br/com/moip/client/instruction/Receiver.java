@@ -4,6 +4,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Classe que representa o recebedor de um pagamento.
+ * <br>XML: Elemento &lt;Recebedor&gt;
  *
  */
 @XStreamAlias("Recebedor")
@@ -17,6 +18,7 @@ public class Receiver {
 
 	/**
 	 * Define o login Moip deste recebedor.
+	 * <br>XML: Elemento &lt;LoginMoIP&gt;
 	 * @param loginMoIP
 	 * @return
 	 */
@@ -27,6 +29,7 @@ public class Receiver {
 
 	/**
 	 * Define o apelido deste recebedor.
+	 * <br>XML: Elemento &lt;Apelido&gt;
 	 * @param apelido
 	 * @return
 	 */

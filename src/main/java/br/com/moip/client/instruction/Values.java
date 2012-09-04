@@ -5,6 +5,7 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
 /**
  * Classe que representa o valor de um pagamento.
+ * <br>XML: Elemento &lt;Valores&gt;
  *
  */
 @XStreamAlias("Valores")
@@ -18,6 +19,7 @@ public class Values {
 
 	/**
 	 * Define a quantia deste valor.
+	 * <br>XML: Elemento &lt;Valor&gt;
 	 * @param valor
 	 * @return
 	 */
@@ -28,6 +30,7 @@ public class Values {
 
 	/**
 	 * Define a moeda utilizada para representar este valor.
+	 * <br>XML: atributo moeda;
 	 * @param moeda
 	 * @return
 	 */

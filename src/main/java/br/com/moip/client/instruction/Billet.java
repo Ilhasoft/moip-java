@@ -4,6 +4,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Classe para configuração do Boleto.
+ * <br>XML: Elemento &lt;Boleto&gt;
  *
  */
 @XStreamAlias("Boleto")
@@ -26,6 +27,7 @@ public class Billet {
 
 	/**
 	 * Define o número de dias para expiração do boleto.
+	 * <br>XML: Elemento &lt;DiasExpiracao&gt;
 	 * @param diasExpiracao
 	 * @return
 	 */
@@ -51,6 +53,7 @@ public class Billet {
 
 	/**
 	 * Define a URL do Logo do Boleto.
+	 * <br>XML: Elemento &lt;URLLogo&gt;
 	 * @param URLLogo
 	 * @return
 	 */

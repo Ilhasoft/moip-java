@@ -4,6 +4,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Classe que representa uma regra de parcelamento.
+ * <br>XML: Elemento &lt;Parcelamento&gt;
  *
  */
 @XStreamAlias("Parcelamento")
@@ -26,6 +27,7 @@ public class Parcel {
 
 	/**
 	 * Define o número mínimo de parcelas deste parcelamento.
+	 * <br>XML: Elemento &lt;MinimoParcelas&gt;
 	 * @param minimoParcelas
 	 * @return
 	 */
@@ -36,6 +38,7 @@ public class Parcel {
 	
 	/**
 	 * Define o número máximo de parcelas deste parcelamento.
+	 * <br>XML: Elemento &lt;MaximoParcelas&gt;
 	 * @param maximoParcelas
 	 * @return
 	 */
@@ -46,6 +49,7 @@ public class Parcel {
 
 	/**
 	 * Define o tipo de recebimento deste parcelamento.
+	 * <br>XML: Elemento &lt;Recebimento&gt;
 	 * @param recebimento
 	 * @return
 	 */
@@ -56,6 +60,7 @@ public class Parcel {
 
 	/**
 	 * Define a taxa de juros deste parcelamento.
+	 * <br>XML: Elemento &lt;Juros&gt;
 	 * @param juros
 	 * @return
 	 */
@@ -66,6 +71,7 @@ public class Parcel {
 
 	/**
 	 * Define se os juros devem ser repassados pro cliente ou não.
+	 * <br>XML: Elemento &lt;Repassar&gt;
 	 * @param repassar
 	 * @return
 	 */

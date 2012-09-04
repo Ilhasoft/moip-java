@@ -5,6 +5,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Classe que representa a resposta ao cadastro de instrução única.
+ * <br>XML: Elemento &lt;ns1:EnviarInstrucaoUnicaResponse&gt;
  *
  */
 @XStreamAlias("ns1:EnviarInstrucaoUnicaResponse")
@@ -15,6 +16,7 @@ public class SendSingleInstructionResponse {
 
 	/**
 	 * Devolve a resposta ao cadastro de instrução única.
+	 * <br>XML: Elemento &lt;Resposta&gt;
 	 * @return
 	 */
 	public SendInstructionResponse getResponse() {

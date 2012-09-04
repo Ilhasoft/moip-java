@@ -7,6 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Classe usada para o envio de instruções.
+ * <br>XML: Elemento &lt;EnviarInstrucao&gt;
  *
  */
 @XStreamAlias("EnviarInstrucao")
@@ -17,6 +18,7 @@ public class SendInstruction {
 
 	/**
 	 * Define a instrução única a ser enviada com esta instrução.
+	 * <br>XML: Elemento &lt;InstrucaoUnica&gt;
 	 * @param instrucaoUnica
 	 * @return
 	 */

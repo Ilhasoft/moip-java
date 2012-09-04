@@ -4,6 +4,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Classe que representa um comissionamento.
+ * <br>XML: Elemento &lt;Comissionamento&gt;
  *
  */
 @XStreamAlias("Comissionamento")
@@ -23,6 +24,7 @@ public class Comissioning {
 
 	/**
 	 * Define a razão deste comissionamento.
+	 * <br>XML: Elemento &lt;Razao&gt;
 	 * @param razao
 	 * @return
 	 */
@@ -33,6 +35,7 @@ public class Comissioning {
 
 	/**
 	 * Define o valor percentual deste comissionamento.
+	 * <br>XML: Elemento &lt;ValorPercentual&gt;
 	 * @param valor
 	 * @return
 	 */
@@ -43,6 +46,7 @@ public class Comissioning {
 	
 	/**
 	 * Define um valor fixo para este comissionamento.
+	 * <br>XML: Elemento &lt;ValorFixo&gt;
 	 * @param valor
 	 * @return
 	 */
@@ -53,6 +57,7 @@ public class Comissioning {
 
 	/**
 	 * Define o comissionado deste comissionamento.
+	 * <br>XML: Elemento &lt;Comissionado&gt;
 	 * @param comissionado
 	 * @return
 	 */

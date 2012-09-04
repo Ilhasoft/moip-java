@@ -10,6 +10,7 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
 /**
  * Classe que representa um pagamento por instrução única.
+ * <br>XML: Elemento &lt;InstrucaoUnica&gt;
  *
  */
 @XStreamAlias("InstrucaoUnica")
@@ -96,6 +97,7 @@ public class SingleInstruction {
 	
 	/**
 	 * Define que deve ser usada a validação de tipo "Transparente" para esta instrução.
+	 * <br>XML: atributo tipoValidacao="Transparente"
 	 * @return
 	 */
 	public SingleInstruction withTransparentValidation() {
@@ -105,6 +107,7 @@ public class SingleInstruction {
 	
 	/**
 	 * Define a razão deste pagamento.
+	 * <br>XML: Elemento &lt;Razao&gt;
 	 * @param razao
 	 * @return
 	 */
@@ -115,6 +118,7 @@ public class SingleInstruction {
 
 	/**
 	 * Define o ID próprio deste pagamento.
+	 * <br>XML: Elemento &lt;IdProprio&gt;
 	 * @param id
 	 * @return
 	 */
@@ -125,6 +129,7 @@ public class SingleInstruction {
 
 	/**
 	 * Define o Pagador deste pagamento.
+	 * <br>XML: Elemento &lt;Pagador&gt;
 	 * @param pagador
 	 * @return
 	 */
@@ -135,6 +140,7 @@ public class SingleInstruction {
 
 	/**
 	 * Define os dados do Boleto deste pagamento.
+	 * <br>XML: Elemento &lt;Boleto&gt;
 	 * @param boleto
 	 * @return
 	 */
@@ -145,6 +151,7 @@ public class SingleInstruction {
 
 	/**
 	 * Define o Valor deste pagamento.
+	 * <br>XML: Elemento &lt;Valores&gt;
 	 * @param valores
 	 * @return
 	 */
@@ -155,6 +162,7 @@ public class SingleInstruction {
 
 	/**
 	 * Define o Recebedor deste pagamento.
+	 * <br>XML: Elemento &lt;Recebedor&gt;
 	 * @param recebedor
 	 * @return
 	 */
@@ -165,6 +173,7 @@ public class SingleInstruction {
 
 	/**
 	 * Define um comissionamento para este pagamento. Pode ser especificado mais de um.
+	 * <br>XML: Elemento &lt;Comissionamento&gt;
 	 * @param comissionamento
 	 * @return
 	 */
@@ -177,6 +186,7 @@ public class SingleInstruction {
 	
 	/**
 	 * Define uma regra de parcelamento para este pagamento. Pode ser especificada mais de uma.
+	 * <br>XML: Elemento &lt;Parcelamento&gt;
 	 * @param parcelamento
 	 * @return
 	 */
@@ -189,6 +199,7 @@ public class SingleInstruction {
 	
 	/**
 	 * Define a URL de Notificação para este pagamento.
+	 * <br>XML: Elemento &lt;URLNotificacao&gt;
 	 * @param urlNotificacao
 	 * @return
 	 */
@@ -199,6 +210,7 @@ public class SingleInstruction {
 
 	/**
 	 * Define a URL de Retorno para este pagamento.
+	 * <br>XML: Elemento &lt;URLRetorno&gt;
 	 * @param urlRetorno
 	 * @return
 	 */

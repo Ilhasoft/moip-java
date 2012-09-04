@@ -28,6 +28,7 @@ public class BaseResponse {
 	
 	/**
 	 * Devolve o ID gerado pelo Moip para este request.
+	 * <br>XML: Elemento &lt;ID&gt;
 	 * @return
 	 */
 	public String getId() {
@@ -36,6 +37,7 @@ public class BaseResponse {
 
 	/**
 	 * Devolve o Status deste request.
+	 * <br>XML: Elemento &lt;Status&gt;
 	 * @return
 	 */
 	public String getStatus() {

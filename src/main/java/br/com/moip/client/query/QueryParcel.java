@@ -15,6 +15,7 @@ public class QueryParcel {
 	
 	/**
 	 * Cria uma consulta com o login Moip, máximo de parcelas, juros e valor informados.
+	 * Todos os campos são obrigatórios.
 	 * @param login
 	 * @param maxParcel
 	 * @param interest

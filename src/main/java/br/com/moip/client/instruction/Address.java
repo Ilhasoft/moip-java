@@ -4,6 +4,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Representa um endereço, tanto de cobrança quanto de entrega.
+ * <br>XML: Elemento &lt;Endereco&gt;
  *
  */
 @XStreamAlias("Endereco")
@@ -38,6 +39,7 @@ public class Address {
 
     /**
      * Define a rua deste endereço.
+     * <br>XML: Elemento &lt;Logradouro&gt;
      * @param logradouro
      * @return
      */
@@ -48,6 +50,7 @@ public class Address {
 
     /**
      * Define o número deste endereço.
+     * <br>XML: Elemento &lt;Numero&gt;
      * @param numero
      * @return
      */
@@ -58,6 +61,7 @@ public class Address {
 
     /**
      * Define o complemento deste endereço.
+     * <br>XML: Elemento &lt;Complemento&gt;
      * @param complemento
      * @return
      */
@@ -68,6 +72,7 @@ public class Address {
 
     /**
      * Define o bairro deste endereço.
+     * <br>XML: Elemento &lt;Bairro&gt;
      * @param bairro
      * @return
      */
@@ -78,6 +83,7 @@ public class Address {
 
     /**
      * Define a cidade deste endereço.
+     * <br>XML: Elemento &lt;Cidade&gt;
      * @param cidade
      * @return
      */
@@ -88,6 +94,7 @@ public class Address {
 
     /**
      * Define o estado deste endereço.
+     * <br>XML: Elemento &lt;Estado&gt;
      * @param estado
      * @return
      */
@@ -98,6 +105,7 @@ public class Address {
 
     /**
      * Define o país deste endereço.
+     * <br>XML: Elemento &lt;Pais&gt;
      * @param pais
      * @return
      */
@@ -108,6 +116,7 @@ public class Address {
 
     /**
      * Define o CEP deste endereço.
+     * <br>XML: Elemento &lt;CEP&gt;
      * @param cep
      * @return
      */
@@ -118,6 +127,7 @@ public class Address {
 
     /**
      * Define o telefone fixo deste endereço.
+     * <br>XML: Elemento &lt;TelefoneFixo&gt;
      * @param telefoneFixo
      * @return
      */

@@ -20,6 +20,7 @@ public class ParcelValuesResponse extends BaseResponse {
 	
 	/**
 	 * Devolve a lista de opções de parcelamento, ou null se houveram erros.
+	 * <br>XML: Elementos &lt;ValorDaParcela&gt;
 	 * @return
 	 */
 	public List<ParcelValue> getValues() {
@@ -28,6 +29,7 @@ public class ParcelValuesResponse extends BaseResponse {
 	
 	/**
 	 * Devolve a lista de erros, ou null se não houveram.
+	 * <br>XML: Elementos &lt;Erro&gt;
 	 * @return
 	 */
 	public List<Error> getErrors() {

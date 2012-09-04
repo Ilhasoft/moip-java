@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" additionalparam=" -charset UTF-8" author="true" classpath="/home/fernando/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/home/fernando/.m2/repository/junit/junit/4.0/junit-4.0.jar:/home/fernando/.m2/repository/commons-codec/commons-codec/1.5/commons-codec-1.5.jar:/home/fernando/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/home/fernando/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:target/test-classes:/home/fernando/.m2/repository/com/thoughtworks/xstream/xstream/1.4.3/xstream-1.4.3.jar:/home/fernando/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar" destdir="doc" doctitle="JMoip Javadoc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="br.com.moip.client.query,br.com.moip.client.exception,br.com.moip.client.response,br.com.moip.client.send,br.com.moip.client.instruction" source="1.5" sourcepath="src/main/java:src/test/java" splitindex="true" use="true" version="true"/>
+    </target>
+</project>

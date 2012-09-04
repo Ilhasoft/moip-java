@@ -4,6 +4,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Classe que representa um comissionado.
+ * <br>XML: Elemento &lt;Comissionado&gt;
  *
  */
 @XStreamAlias("Comissionado")
@@ -28,6 +29,7 @@ public class Comissioned {
 
 	/**
 	 * Define o login Moip do comissionado.
+	 * <br>XML: Elemento &lt;LoginMoIP&gt;
 	 * @param loginMoIP
 	 */
 	public void setLoginMoIP(final String loginMoIP) {

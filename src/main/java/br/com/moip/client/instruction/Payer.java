@@ -4,6 +4,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Classe que representa um pagador.
+ * <br>XML: Elemento &lt;Pagador&gt;
  *
  */
 @XStreamAlias("Pagador")
@@ -35,6 +36,7 @@ public class Payer {
 
     /**
      * Define o nome deste pagador.
+     * <br>XML: Elemento &lt;Nome&gt;
      * @param nome
      * @return
      */
@@ -45,6 +47,7 @@ public class Payer {
 
     /**
      * Define o email deste pagador.
+     * <br>XML: Elemento &lt;Email&gt;
      * @param email
      * @return
      */
@@ -55,6 +58,7 @@ public class Payer {
 
     /**
      * Define o telefone celular deste pagador.
+     * <br>XML: Elemento &lt;TelefoneCelular&gt;
      * @param telefoneCelular
      * @return
      */
@@ -65,6 +69,7 @@ public class Payer {
 
     /**
      * Define o apelido deste pagador.
+     * <br>XML: Elemento &lt;Apelido&gt;
      * @param apelido
      * @return
      */
@@ -75,6 +80,7 @@ public class Payer {
 
     /**
      * Define a identidade (CPF) deste pagador.
+     * <br>XML: Elemento &lt;Identidade&gt;
      * @param identidade
      * @return
      */
@@ -85,6 +91,7 @@ public class Payer {
 
     /**
      * Define o endereço de cobrança deste pagador.
+     * <br>XML: Elemento &lt;EnderecoCobranca&gt;
      * @param enderecoCobranca
      * @return
      */
@@ -95,6 +102,7 @@ public class Payer {
 
     /**
      * Define o ID do pagador.
+     * <br>XML: Elemento &lt;IdPagador&gt;
      * @param payerID
      * @return
      */

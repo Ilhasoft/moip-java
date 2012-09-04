@@ -7,6 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 /**
  * Classe que representa a resposta ao cadastro de instrução.
+ * <br>XML: Elemento &lt;Resposta&gt;
  *
  */
 @XStreamAlias("Resposta")
@@ -20,6 +21,7 @@ public class SendInstructionResponse extends BaseResponse {
 
 	/**
 	 * Devolve o token associado à instrução cadastrada, ou null se houveram erros.
+	 * <br>XML: Elemento &lt;Token&gt;
 	 * @return
 	 */
 	public String getToken() {
@@ -28,6 +30,7 @@ public class SendInstructionResponse extends BaseResponse {
 
 	/**
 	 * Devolve os erros, ou null se não houveram.
+	 * <br>XML: Elementos &lt;Erro&gt;
 	 * @return
 	 */
 	public List<Error> getErrors() {
