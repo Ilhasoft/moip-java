@@ -16,22 +16,62 @@ import br.com.moip.client.response.SendSingleInstructionResponse;
 
 import com.thoughtworks.xstream.XStream;
 
+/**
+ * Classe que possui as funcionalidades para enviar os requests para o Moip e abstrair os parâmetros
+ * e os retornos.
+ *
+ */
 public abstract class SendToMoip {
 
 	private String token;
 
 	private String key;
 
-	private String hash;
-
 	public SendToMoip() {
 	}
 
+	/**
+	 * Cria um enviador com token e chave definidos.
+	 * @param token
+	 * @param key
+	 */
 	public SendToMoip(final String token, final String key) {
 		this.token = token;
 		this.key = key;
 	}
 
+	/**
+	 * Define para qual ambiente os requests serão enviados.
+	 * @return
+	 */
+	public abstract String getEnviroment();
+
+	/**
+	 * Define o token usado na autenticação.
+	 * @param token
+	 * @return
+	 */
+	public SendToMoip withToken(final String token) {
+		this.token = token;
+		return this;
+	}
+
+	/**
+	 * Define a chave usada na autenticação.
+	 * @param key
+	 * @return
+	 */
+	public SendToMoip withKey(final String key) {
+		this.key = key;
+		return this;
+	}
+
+	/**
+	 * Envia uma instrução para o ambiente definido por este enviador.
+	 * @param enviarInstrucao instrução a ser enviada.
+	 * @return SendSingleInstructionResponse com os dados da resposta do Moip
+	 * @throws MoipClientException mediante algum problema na comunicação com o Moip.
+	 */
 	public SendSingleInstructionResponse send(
 			final SendInstruction enviarInstrucao) {
 		enviarInstrucao.validate();
@@ -66,6 +106,12 @@ public abstract class SendToMoip {
 		}
 	}
 
+	/**
+	 * Envia uma consulta de parcelamento para o ambiente definido por este enviador.
+	 * @param query consulta a ser enviada.
+	 * @return CheckParcelValuesResponse com os dados da resposta do Moip
+	 * @throws MoipClientException mediante algum problema na comunicação com o Moip.
+	 */
 	public CheckParcelValuesResponse send (QueryParcel query) {
 		query.validate();
 		
@@ -95,37 +141,17 @@ public abstract class SendToMoip {
 		}
 	}
 	
+	/**
+	 * Cria o header de autorização para o método passado como parâmetro.
+	 * @param method
+	 */
 	private void createAuthHeader(HttpMethod method) {
 		String authHeader = token + ":" + key;
-		String hash = this.hash;
-		if (!hasHash()) {
-			hash = new String(Base64.encodeBase64(authHeader.getBytes()));
-		}
+		String hash = new String(Base64.encodeBase64(authHeader.getBytes()));
 		String encoded = "Basic " + hash;
 
 		method.setRequestHeader("Authorization", encoded);
 		method.setDoAuthentication(true);
-	}
-
-	public abstract String getEnviroment();
-
-	private boolean hasHash() {
-		return hash != null && !"".equals(hash);
-	}
-
-	public SendToMoip withToken(final String token) {
-		this.token = token;
-		return this;
-	}
-
-	public SendToMoip withKey(final String key) {
-		this.key = key;
-		return this;
-	}
-
-	public SendToMoip withHash(final String hash) {
-		this.hash = hash;
-		return this;
 	}
 
 }

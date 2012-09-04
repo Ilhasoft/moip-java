@@ -8,6 +8,10 @@ import br.com.moip.client.exception.InstructionValidationException;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
+/**
+ * Classe que representa um pagamento por instrução única.
+ *
+ */
 @XStreamAlias("InstrucaoUnica")
 public class SingleInstruction {
 
@@ -24,9 +28,6 @@ public class SingleInstruction {
 	@XStreamAlias("Pagador")
 	private Payer payer;
 
-	@XStreamAlias("PagamentoDireto")
-	private DirectPayment directPayment;
-
 	@XStreamAlias("Boleto")
 	private Billet billet;
 
@@ -39,9 +40,6 @@ public class SingleInstruction {
 	@XStreamAlias("URLRetorno")
 	private String returnURL;
 
-	@XStreamAlias("Mensagens")
-	private Messages messages;
-
 	@XStreamAlias("Recebedor")
 	private Receiver receiver;
 
@@ -51,162 +49,10 @@ public class SingleInstruction {
 	@XStreamAlias("Parcelamentos")
 	private List<Parcel> parcels;
 
-	public SingleInstruction withTransparentValidation() {
-		this.validationType = "Transparente";
-		return this;
-	}
-	
-	public SingleInstruction withReason(final String razao) {
-		this.reason = razao;
-		return this;
-	}
-
-	public SingleInstruction withUniqueId(final String id) {
-		this.uniqueId = id;
-		return this;
-	}
-
-	public SingleInstruction with(final DirectPayment pagamentoDireto) {
-		this.directPayment = pagamentoDireto;
-		return this;
-	}
-
-	public SingleInstruction with(final Payer pagador) {
-		this.payer = pagador;
-		return this;
-	}
-
-	public SingleInstruction with(final Billet boleto) {
-		this.billet = boleto;
-		return this;
-	}
-
-	public SingleInstruction with(final Values valores) {
-		this.values = valores;
-		return this;
-	}
-
-	public SingleInstruction with(final Messages mensagens) {
-		this.messages = mensagens;
-		return this;
-	}
-
-	public SingleInstruction with(final Receiver recebedor) {
-		this.receiver = recebedor;
-		return this;
-	}
-
-	public SingleInstruction with(Comissioning comissionamento) {
-		if (this.comissions == null)
-			this.comissions = new ArrayList<Comissioning>();
-		this.comissions.add(comissionamento);
-		return this;
-	}
-	
-	public SingleInstruction with(Parcel parcelamento) {
-		if (this.parcels == null)
-			this.parcels = new ArrayList<Parcel>();
-		this.parcels.add(parcelamento);
-		return this;
-	}
-	
-	public Payer payer() {
-		if (payer == null) {
-			payer = new Payer();
-		}
-		return payer;
-	}
-
-	public DirectPayment directPayment() {
-		if (directPayment == null) {
-			directPayment = new DirectPayment();
-		}
-		return directPayment;
-	}
-
-	public Billet billet() {
-		if (billet == null) {
-			billet = new Billet();
-		}
-		return billet;
-	}
-
-	public Values values() {
-		if (values == null) {
-			values = new Values();
-		}
-		return values;
-	}
-
-	public Receiver receiver() {
-		if (receiver == null) {
-			receiver = new Receiver();
-		}
-		return receiver;
-	}
-
-	public SingleInstruction withNotificationURL(final String urlNotificacao) {
-		this.notificationURL = urlNotificacao;
-		return this;
-	}
-
-	public SingleInstruction withReturnURL(final String urlRetorno) {
-		this.returnURL = urlRetorno;
-		return this;
-	}
-
-	public String getValidationType() {
-		return validationType;
-	}
-
-	public String getReason() {
-		return reason;
-	}
-
-	public String getUniqueId() {
-		return uniqueId;
-	}
-
-	public Payer getPayer() {
-		return payer;
-	}
-
-	public DirectPayment getDirectPayment() {
-		return directPayment;
-	}
-
-	public Billet getBillet() {
-		return billet;
-	}
-
-	public Values getValues() {
-		return values;
-	}
-
-	public String getNotificationURL() {
-		return notificationURL;
-	}
-
-	public String getReturnURL() {
-		return returnURL;
-	}
-
-	public Messages getMessages() {
-		return messages;
-	}
-
-	public Receiver getReceiver() {
-		return receiver;
-	}
-
-	public List<Comissioning> getComissions() {
-		return comissions;
-	}
-
-	public List<Parcel> getParcels() {
-		return parcels;
-	}
-
+	/**
+	 * Valida esta instrução, lançando uma exceção que lista os campos faltantes.
+	 * @throws InstructionValidationException
+	 */
 	public void validate() throws InstructionValidationException {
 		String fields = "";
 		if (this.getUniqueId() == null) fields += "uniqueID,";
@@ -221,6 +67,10 @@ public class SingleInstruction {
 		
 	}
 
+	/**
+	 * Valida os campos para uma instrução do tipo "Transparente".
+	 * @return String com os campos faltantes concatenados por vírgula
+	 */
 	private String validateTransparent() {
 		String fields = "";
 		if (this.getPayer() == null) fields += "payer,";
@@ -243,4 +93,162 @@ public class SingleInstruction {
 		
 		return fields;
 	}
+	
+	/**
+	 * Define que deve ser usada a validação de tipo "Transparente" para esta instrução.
+	 * @return
+	 */
+	public SingleInstruction withTransparentValidation() {
+		this.validationType = "Transparente";
+		return this;
+	}
+	
+	/**
+	 * Define a razão deste pagamento.
+	 * @param razao
+	 * @return
+	 */
+	public SingleInstruction withReason(final String razao) {
+		this.reason = razao;
+		return this;
+	}
+
+	/**
+	 * Define o ID próprio deste pagamento.
+	 * @param id
+	 * @return
+	 */
+	public SingleInstruction withUniqueId(final String id) {
+		this.uniqueId = id;
+		return this;
+	}
+
+	/**
+	 * Define o Pagador deste pagamento.
+	 * @param pagador
+	 * @return
+	 */
+	public SingleInstruction with(final Payer pagador) {
+		this.payer = pagador;
+		return this;
+	}
+
+	/**
+	 * Define os dados do Boleto deste pagamento.
+	 * @param boleto
+	 * @return
+	 */
+	public SingleInstruction with(final Billet boleto) {
+		this.billet = boleto;
+		return this;
+	}
+
+	/**
+	 * Define o Valor deste pagamento.
+	 * @param valores
+	 * @return
+	 */
+	public SingleInstruction with(final Values valores) {
+		this.values = valores;
+		return this;
+	}
+
+	/**
+	 * Define o Recebedor deste pagamento.
+	 * @param recebedor
+	 * @return
+	 */
+	public SingleInstruction with(final Receiver recebedor) {
+		this.receiver = recebedor;
+		return this;
+	}
+
+	/**
+	 * Define um comissionamento para este pagamento. Pode ser especificado mais de um.
+	 * @param comissionamento
+	 * @return
+	 */
+	public SingleInstruction with(Comissioning comissionamento) {
+		if (this.comissions == null)
+			this.comissions = new ArrayList<Comissioning>();
+		this.comissions.add(comissionamento);
+		return this;
+	}
+	
+	/**
+	 * Define uma regra de parcelamento para este pagamento. Pode ser especificada mais de uma.
+	 * @param parcelamento
+	 * @return
+	 */
+	public SingleInstruction with(Parcel parcelamento) {
+		if (this.parcels == null)
+			this.parcels = new ArrayList<Parcel>();
+		this.parcels.add(parcelamento);
+		return this;
+	}
+	
+	/**
+	 * Define a URL de Notificação para este pagamento.
+	 * @param urlNotificacao
+	 * @return
+	 */
+	public SingleInstruction withNotificationURL(final String urlNotificacao) {
+		this.notificationURL = urlNotificacao;
+		return this;
+	}
+
+	/**
+	 * Define a URL de Retorno para este pagamento.
+	 * @param urlRetorno
+	 * @return
+	 */
+	public SingleInstruction withReturnURL(final String urlRetorno) {
+		this.returnURL = urlRetorno;
+		return this;
+	}
+
+	public String getValidationType() {
+		return validationType;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public String getUniqueId() {
+		return uniqueId;
+	}
+
+	public Payer getPayer() {
+		return payer;
+	}
+
+	public Billet getBillet() {
+		return billet;
+	}
+
+	public Values getValues() {
+		return values;
+	}
+
+	public String getNotificationURL() {
+		return notificationURL;
+	}
+
+	public String getReturnURL() {
+		return returnURL;
+	}
+
+	public Receiver getReceiver() {
+		return receiver;
+	}
+
+	public List<Comissioning> getComissions() {
+		return comissions;
+	}
+
+	public List<Parcel> getParcels() {
+		return parcels;
+	}
+	
 }

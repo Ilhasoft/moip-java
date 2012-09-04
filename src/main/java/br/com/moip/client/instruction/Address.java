@@ -2,6 +2,10 @@ package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+/**
+ * Representa um endereço, tanto de cobrança quanto de entrega.
+ *
+ */
 @XStreamAlias("Endereco")
 public class Address {
 
@@ -32,46 +36,91 @@ public class Address {
     @XStreamAlias("TelefoneFixo")
     private String phone;
 
+    /**
+     * Define a rua deste endereço.
+     * @param logradouro
+     * @return
+     */
     public Address withAddress(final String logradouro) {
         this.address = logradouro;
         return this;
     }
 
+    /**
+     * Define o número deste endereço.
+     * @param numero
+     * @return
+     */
     public Address withNumber(final String numero) {
         this.number = numero;
         return this;
     }
 
+    /**
+     * Define o complemento deste endereço.
+     * @param complemento
+     * @return
+     */
     public Address withComplement(final String complemento) {
         this.complement = complemento;
         return this;
     }
 
+    /**
+     * Define o bairro deste endereço.
+     * @param bairro
+     * @return
+     */
     public Address withNeighborhood(final String bairro) {
         this.neighborhood = bairro;
         return this;
     }
 
+    /**
+     * Define a cidade deste endereço.
+     * @param cidade
+     * @return
+     */
     public Address withCity(final String cidade) {
         this.city = cidade;
         return this;
     }
 
+    /**
+     * Define o estado deste endereço.
+     * @param estado
+     * @return
+     */
     public Address withState(final String estado) {
         this.state = estado;
         return this;
     }
 
+    /**
+     * Define o país deste endereço.
+     * @param pais
+     * @return
+     */
     public Address withCountry(final String pais) {
         this.country = pais;
         return this;
     }
 
+    /**
+     * Define o CEP deste endereço.
+     * @param cep
+     * @return
+     */
     public Address withZipCode(final String cep) {
         this.zipCode = cep;
         return this;
     }
 
+    /**
+     * Define o telefone fixo deste endereço.
+     * @param telefoneFixo
+     * @return
+     */
     public Address withPhone(final String telefoneFixo) {
         this.phone = telefoneFixo;
         return this;

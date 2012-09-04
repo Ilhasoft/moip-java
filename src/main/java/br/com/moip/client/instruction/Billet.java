@@ -2,6 +2,10 @@ package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+/**
+ * Classe para configuração do Boleto.
+ *
+ */
 @XStreamAlias("Boleto")
 public class Billet {
 
@@ -20,6 +24,11 @@ public class Billet {
 	@XStreamAlias("URLLogo")
 	private String URLLogo;
 
+	/**
+	 * Define o número de dias para expiração do boleto.
+	 * @param diasExpiracao
+	 * @return
+	 */
 	public Billet withDaysToExpire(final String diasExpiracao) {
 		this.daysToExpire = diasExpiracao;
 		return this;
@@ -40,6 +49,11 @@ public class Billet {
 		return this;
 	}
 
+	/**
+	 * Define a URL do Logo do Boleto.
+	 * @param URLLogo
+	 * @return
+	 */
 	public Billet withURLLogo(final String URLLogo) {
 		this.URLLogo = URLLogo;
 		return this;

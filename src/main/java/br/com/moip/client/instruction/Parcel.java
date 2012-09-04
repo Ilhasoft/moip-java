@@ -2,6 +2,10 @@ package br.com.moip.client.instruction;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+/**
+ * Classe que representa uma regra de parcelamento.
+ *
+ */
 @XStreamAlias("Parcelamento")
 public class Parcel {
 
@@ -20,26 +24,51 @@ public class Parcel {
 	@XStreamAlias("Repassar")
 	private String transfer;
 
+	/**
+	 * Define o número mínimo de parcelas deste parcelamento.
+	 * @param minimoParcelas
+	 * @return
+	 */
 	public Parcel withMinimumParcels(final String minimoParcelas) {
 		this.minimumParcels = minimoParcelas;
 		return this;
 	}
 	
+	/**
+	 * Define o número máximo de parcelas deste parcelamento.
+	 * @param maximoParcelas
+	 * @return
+	 */
 	public Parcel withMaximumParcels(final String maximoParcelas) {
 		this.maximumParcels = maximoParcelas;
 		return this;
 	}
 
+	/**
+	 * Define o tipo de recebimento deste parcelamento.
+	 * @param recebimento
+	 * @return
+	 */
 	public Parcel withReceptionType(final String recebimento) {
 		this.receptionType = recebimento;
 		return this;
 	}
 
+	/**
+	 * Define a taxa de juros deste parcelamento.
+	 * @param juros
+	 * @return
+	 */
 	public Parcel withInterest(final String juros) {
 		this.interest = juros;
 		return this;
 	}
 
+	/**
+	 * Define se os juros devem ser repassados pro cliente ou não.
+	 * @param repassar
+	 * @return
+	 */
 	public Parcel withTransfer(final String repassar) {
 		this.transfer = repassar;
 		return this;

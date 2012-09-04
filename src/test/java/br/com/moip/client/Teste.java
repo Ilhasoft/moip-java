@@ -20,7 +20,7 @@ public class Teste {
 				.withSingleInstruction(new SingleInstruction()
 						.withTransparentValidation()
 						.withReason("Uma motivo pela compra")
-						.withUniqueId("teste2")
+						.withUniqueId("teste42")
 						.with(new Payer()
 								.withName("Breno Oliveira")
 								.withEmail("breno26@gmail.com")
