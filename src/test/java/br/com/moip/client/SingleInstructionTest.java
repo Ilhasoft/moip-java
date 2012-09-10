@@ -34,7 +34,7 @@ public class SingleInstructionTest {
 				new SingleInstruction()
 				.withUniqueId("test" + new Date().getTime())
 				.withReason("razão social")
-				.with(new Values().withValue("12.34").withCurrency("BRL"))
+				.with(new Values().withValue("12.34"))
 				.withTransparentValidation());
 		sandboxMoip.send(instruction);
 	}
